@@ -47,6 +47,9 @@ class RegionsPage extends StatelessWidget {
   }
 
   Widget _buildRegionsGrid(List<RegionInfo> list) {
+    // sort list
+    list.sort((regionA, regionB) => regionB.cases - regionA.cases);
+
     return animatedLists.LiveGrid.options(
       options: options,
       itemBuilder: (context, index, animation) =>
@@ -77,22 +80,53 @@ class RegionsPage extends StatelessWidget {
     );
   }
 
+  final double _clipValue = 4;
+  final TextStyle cityTextStyle = TextStyle(fontSize: 18);
+
   Widget _buildRegionCard(RegionInfo region) {
-    final double clipValue = 8;
     final Widget image = Image.asset(
       AssetsUtils.getJPGImagePath(region.name),
       fit: BoxFit.cover,
     );
 
     return Card(
-      shape: DecorationUtils.getCardRoundedBorder(clipValue),
+      shape: DecorationUtils.getCardRoundedBorder(_clipValue),
       elevation: 4,
-      child: Column(
+      child: Stack(
         children: <Widget>[
-          DecorationUtils.clipTopWithRadius(image, clipValue),
-          Text(region.name),
-          Text('cases: ${region.cases}'),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                  child: DecorationUtils.clipTopWithRadius(image, _clipValue)),
+              Center(child: Text('${region.name}', style: cityTextStyle)),
+              Text(' Home Quarantined: ${region.homeQuarantine}'),
+              Text(' Centeral Quarantined: ${region.centralQuarantine}'),
+              SizedBox(height: 8),
+            ],
+          ),
+          _buildStackBadge(region.cases),
         ],
+      ),
+    );
+  }
+
+  final TextStyle badgeTextStyle = TextStyle(color: Colors.white, fontSize: 18);
+
+  Widget _buildStackBadge(int cases) {
+    return Positioned(
+      top: 0,
+      right: 0,
+      child: Container(
+        child: Text('$cases ${cases == 1 ? 'case' : 'cases'}',
+            style: badgeTextStyle),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.6),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(_clipValue),
+            bottomLeft: Radius.circular(_clipValue),
+          ),
+        ),
       ),
     );
   }
