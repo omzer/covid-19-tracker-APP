@@ -57,7 +57,10 @@ class RegionsPage extends StatelessWidget {
       scrollDirection: Axis.vertical,
       itemCount: list.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+        crossAxisCount:
+            MediaQuery.of(_context).orientation == Orientation.landscape
+                ? 3
+                : 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
       ),
