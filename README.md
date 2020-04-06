@@ -1,6 +1,6 @@
 # covidtracker
 
-Keep track of COVID-19 cases world wide
+Keep track of COVID-19 cases in Palestine
 
 ## Getting Started
 
