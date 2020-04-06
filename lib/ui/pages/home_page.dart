@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             _buildTitle(),
-            RegionSelector(),
+            RegionSelector(onRegionSelected: _onRegionChanged),
           ],
         ),
       ),
@@ -28,11 +28,15 @@ class HomePage extends StatelessWidget {
 
   Widget _buildTitle() {
     return Text(
-      'COVID-19 Tracker',
+      'Palestinne COVID-19 Tracker',
       style: TextStyle(
-        fontSize: 32,
+        fontSize: 22,
         color: Colors.white,
       ),
     );
+  }
+
+  void _onRegionChanged(newRegion) {
+    print('new region is: $newRegion');
   }
 }
