@@ -1,7 +1,7 @@
-import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
 import 'package:covidtracker/ui/widgets/region_selector.dart';
+import 'package:covidtracker/ui/widgets/summary_card.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +30,7 @@ class HomePage extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting)
           return WorldLoading(size: 50);
-        SummaryModel data = snapshot.data;
-        return Text('We have total of ${data.totalCases}');
+        return SummaryCard(summaryModel: snapshot.data);
       },
     );
   }

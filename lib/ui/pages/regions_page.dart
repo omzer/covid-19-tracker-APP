@@ -89,6 +89,7 @@ class RegionsPage extends StatelessWidget {
   Widget _buildRegionCard(RegionInfo region) {
     final Widget image = Image.asset(
       AssetsUtils.getJPGImagePath(region.name),
+      width: double.infinity,
       fit: BoxFit.cover,
     );
 
@@ -101,7 +102,8 @@ class RegionsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                  child: DecorationUtils.clipTopWithRadius(image, _clipValue)),
+                child: DecorationUtils.clipTopWithRadius(image, _clipValue),
+              ),
               Center(child: Text('${region.name}', style: cityTextStyle)),
               Text(' Home Quarantined: ${region.homeQuarantine}'),
               Text(' Centeral Quarantined: ${region.centralQuarantine}'),
