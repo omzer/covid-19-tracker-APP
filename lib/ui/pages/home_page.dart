@@ -1,5 +1,8 @@
+import 'package:covidtracker/models/summary_model.dart';
+import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
 import 'package:covidtracker/ui/widgets/region_selector.dart';
+import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,9 +17,22 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             _buildTitle(),
             RegionSelector(onRegionSelected: _onRegionChanged),
+            _buildSummery(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildSummery() {
+    return FutureBuilder(
+      future: API.getSummery(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting)
+          return WorldLoading(size: 50);
+        SummaryModel data = snapshot.data;
+        return Text('We have total of ${data.totalCases}');
+      },
     );
   }
 
