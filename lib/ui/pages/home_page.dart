@@ -17,16 +17,16 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             _buildTitle(),
             RegionSelector(onRegionSelected: _onRegionChanged),
-            _buildSummery(),
+            _buildSummary(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSummery() {
+  Widget _buildSummary() {
     return FutureBuilder(
-      future: API.getSummery(),
+      future: API.getSummary(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting)
           return WorldLoading(size: 50);

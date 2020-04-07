@@ -28,7 +28,7 @@ class API {
     return regionsInfo;
   }
 
-  static Future<SummaryModel> getSummery() async {
+  static Future<SummaryModel> getSummary() async {
     String url = '$_baseURL/$_summary';
     var response = await http.get(url);
     dynamic content = json.decode(response.body)['data'];
