@@ -29,6 +29,8 @@ class SummaryCard extends StatelessWidget {
   }
 
   int _buildPercent() {
+    if (summaryModel.totalCases == "N/A" || summaryModel.totalRecovery == "N/A")
+      return -1;
     return (100 *
             int.parse(summaryModel.totalRecovery) /
             double.parse(summaryModel.totalCases))
