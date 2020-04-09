@@ -1,14 +1,14 @@
 class RegionInfo {
   String name;
   int cases;
-  int centralQuarantine;
-  int homeQuarantine;
+  String centralQuarantine;
+  String homeQuarantine;
 
   RegionInfo.fromJson(dynamic json) {
     name = json['Name'].toString().replaceAll(' ', '');
     cases = int.parse(json['Cases'] ?? '0');
-    centralQuarantine = int.parse(json['CentralQuarantine'] ?? '0');
-    homeQuarantine = int.parse(json['HomeQuarantine'] ?? '0');
+    centralQuarantine = json['CentralQuarantine'] ?? '0';
+    homeQuarantine = json['HomeQuarantine'] ?? '0';
   }
 }
 
