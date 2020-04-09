@@ -30,8 +30,8 @@ class SummaryCard extends StatelessWidget {
 
   int _buildPercent() {
     return (100 *
-            summaryModel.totalRecovery /
-            summaryModel.totalCases.toDouble())
+            int.parse(summaryModel.totalRecovery) /
+            double.parse(summaryModel.totalCases))
         .ceil();
   }
 }
