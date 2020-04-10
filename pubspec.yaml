@@ -57,6 +57,10 @@ flutter:
     - lib/imgs/GazaStrip.jpg
     - lib/imgs/Qalqilya.jpg
     - lib/imgs/Nablus.jpg
+    - lib/imgs/people.png
+    - lib/imgs/sample.png
+    - lib/imgs/plus.png
+    - lib/imgs/death.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

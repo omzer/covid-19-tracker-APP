@@ -1,7 +1,7 @@
 import 'package:covidtracker/repo/api.dart';
+import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
-import 'package:covidtracker/ui/widgets/region_selector.dart';
-import 'package:covidtracker/ui/widgets/summary_card.dart';
+import 'package:covidtracker/ui/widgets/summary_section.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
@@ -9,49 +9,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
       drawer: MainPageDrawer(),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            _buildTitle(),
-            RegionSelector(onRegionSelected: _onRegionChanged),
-            _buildSummary(),
-          ],
-        ),
-      ),
+      body: DarkBackground(child: _buildBodyWidgets()),
     );
   }
 
-  Widget _buildSummary() {
-    return FutureBuilder(
-      future: API.getSummary(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting)
-          return WorldLoading(size: 50);
-        return SummaryCard(summaryModel: snapshot.data);
-      },
-    );
-  }
-
-  Widget _buildAppBar() {
-    return AppBar(
-      elevation: 0,
+  Widget _buildBodyWidgets() {
+    return ListView(
+      children: <Widget>[
+        _buildTitle(),
+        _buildSummarySection(),
+      ],
     );
   }
 
   Widget _buildTitle() {
-    return Text(
-      'Palestinne COVID-19 Tracker',
-      style: TextStyle(
-        fontSize: 22,
-        color: Colors.white,
+    TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+      child: Text(
+        'COVID-19 Tracking in Palestine',
+        style: style,
+        textAlign: TextAlign.center,
       ),
     );
   }
 
-  void _onRegionChanged(newRegion) {
-    print('new region is: $newRegion');
+  Widget _buildSummarySection() {
+    return FutureBuilder(
+      future: API.getSummary(),
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.waiting)
+          return WorldLoading();
+        return Center(child: SummarySection(summaryModel: snap.data));
+      },
+    );
   }
 }

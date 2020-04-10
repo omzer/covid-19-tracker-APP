@@ -12,6 +12,7 @@ class WorldLoading extends StatelessWidget {
         'lib/imgs/globe.gif',
         width: size,
         height: size,
+        color: Colors.white,
       ),
     );
   }
