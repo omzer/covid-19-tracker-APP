@@ -10,17 +10,38 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MainPageDrawer(),
-      body: DarkBackground(child: Center(child: _buildItem())),
+      body: DarkBackground(child: _buildBodyWidgets()),
     );
   }
 
-  Widget _buildItem() {
+  Widget _buildBodyWidgets() {
+    return ListView(
+      children: <Widget>[
+        _buildTitle(),
+        _buildSummarySection(),
+      ],
+    );
+  }
+
+  Widget _buildTitle() {
+    TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+      child: Text(
+        'COVID-19 Tracking in Palestine',
+        style: style,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  Widget _buildSummarySection() {
     return FutureBuilder(
       future: API.getSummary(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting)
           return WorldLoading();
-        return SummarySection(summaryModel: snap.data);
+        return Center(child: SummarySection(summaryModel: snap.data));
       },
     );
   }
