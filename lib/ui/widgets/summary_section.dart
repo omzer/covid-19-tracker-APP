@@ -25,7 +25,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff676ef6),
       endColor: Color(0xff8ba4f8),
-      title: '4,371',
+      title: summaryModel.totalCases,
       subtitle: 'Total',
       icon: 'people',
     );
@@ -35,7 +35,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff36405e),
       endColor: Color(0xff5a668a),
-      title: '23,123',
+      title: summaryModel.totalTestedSamples,
       subtitle: 'Tested samples',
       icon: 'sample',
     );
@@ -45,7 +45,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
-      title: '23,123',
+      title: summaryModel.totalRecovery,
       subtitle: 'Recovered',
       icon: 'plus',
     );
@@ -55,7 +55,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
-      title: '23,123',
+      title: summaryModel.totalDeath,
       subtitle: 'Lost',
       icon: 'death',
     );
