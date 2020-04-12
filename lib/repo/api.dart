@@ -11,8 +11,7 @@ class API {
   static API _api;
 
   static API getInstance() {
-    if (_api == null) _api = API();
-    return _api;
+    return _api ?? (_api = API());
   }
 
   Future<List<RegionInfo>> getRegions() async {
