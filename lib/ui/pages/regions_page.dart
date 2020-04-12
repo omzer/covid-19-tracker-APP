@@ -36,7 +36,7 @@ class RegionsPage extends StatelessWidget {
 
   Widget _buildRegionsList() {
     return FutureBuilder(
-      future: API.getRegions(),
+      future: API.getInstance().getRegions(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) {
           return WorldLoading(size: 80);
