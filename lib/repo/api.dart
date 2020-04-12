@@ -5,11 +5,17 @@ import 'package:covidtracker/models/summary_model.dart';
 import 'package:http/http.dart' as http;
 
 class API {
-  static final String _baseURL = 'https://www.corona.ps/API';
-  static final String _regions = 'governorates';
-  static final String _summary = 'summary';
+  final String _baseURL = 'https://www.corona.ps/API';
+  final String _regions = 'governorates';
+  final String _summary = 'summary';
+  static API _api;
 
-  static Future<List<RegionInfo>> getRegions() async {
+  static API getInstance() {
+    if (_api == null) _api = API();
+    return _api;
+  }
+
+  Future<List<RegionInfo>> getRegions() async {
     String url = '$_baseURL/$_regions';
     var response = await http.get(url);
     dynamic content = json.decode(response.body)['data'];
@@ -28,7 +34,7 @@ class API {
     return regionsInfo;
   }
 
-  static Future<SummaryModel> getSummary() async {
+  Future<SummaryModel> getSummary() async {
     String url = '$_baseURL/$_summary';
     var response = await http.get(url);
     dynamic content = json.decode(response.body)['data'];

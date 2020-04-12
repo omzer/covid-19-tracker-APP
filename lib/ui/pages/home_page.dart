@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildSummarySection() {
     return FutureBuilder(
-      future: API.getSummary(),
+      future: API.getInstance().getSummary(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting)
           return WorldLoading();
