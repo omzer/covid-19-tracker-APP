@@ -1,16 +1,20 @@
-# covidtracker
+# COVID-19 Tracker for Palestine
 
-Keep track of COVID-19 cases in Palestine
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## Getting Started
+![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 
-This project is a starting point for a Flutter application.
+##### This is an App where you can follow all the updates regarding Coronavirus cases in Palestine, data is being retrieved from a website that is being monitored from the ministry of health in Palestine (Trusted).
 
-A few resources to get you started if this is your first Flutter project:
+## When it will be released?
+##### This is a project that I'm working on im my free time, so not exactly sure but I hope by the end of April.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+## Want to help?
+##### Pull requests, suggestions and issues are more than welcome!
+
+
+## Want to try it on your local machine?
+##### This App is built entirely on Flutter, which is a cross platform framework for developing Apps for both Android and iOS, you need to do couple of things before cloning this to your local machine, here's some links that will put you in the track:
+- [Flutter.dev website](https://flutter.dev/)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
