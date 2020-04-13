@@ -46,9 +46,16 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
       title: summaryModel.totalRecovery,
-      subtitle: 'Recovered',
+      subtitle: 'Recovered  (${_recoveredPercent()}%)',
       icon: 'plus',
     );
+  }
+
+  int _recoveredPercent() {
+    double total = double.parse(summaryModel.totalCases);
+    double recovered = double.parse(summaryModel.totalRecovery);
+    double death = double.parse(summaryModel.totalDeath);
+    return (100 * recovered / (total - death)).floor();
   }
 
   Widget _buildLostPeople() {
