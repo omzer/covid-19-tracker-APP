@@ -1,4 +1,6 @@
+import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/repo/api.dart';
+import 'package:covidtracker/ui/widgets/case_item.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
 import 'package:covidtracker/ui/widgets/summary_section.dart';
@@ -16,10 +18,55 @@ class HomePage extends StatelessWidget {
 
   Widget _buildBodyWidgets() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         _buildTitle(),
+        _buildSummaryText(),
         _buildSummarySection(),
+        _buildLatestText(),
+        _buildRecentSection(),
       ],
+    );
+  }
+
+  Widget _buildRecentSection() {
+    return FutureBuilder(
+      future: API.getInstance().getCases(),
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.waiting) return Container();
+        return _buildRecentCasesList(snap.data);
+      },
+    );
+  }
+
+  Widget _buildRecentCasesList(List<CaseModel> list) {
+    return Expanded(
+      child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: list == null ? 0 : list.length,
+          itemBuilder: (context, index) => CaseItem(caseModel: list[index])),
+    );
+  }
+
+  Widget _buildLatestText() {
+    TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Text(
+        'Recent cases',
+        style: style,
+      ),
+    );
+  }
+
+  Widget _buildSummaryText() {
+    TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 0, 10),
+      child: Text(
+        'Summary',
+        style: style,
+      ),
     );
   }
 
@@ -28,10 +75,13 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-        child: Text(
-          'COVID-19 Tracking in Palestine',
-          style: style,
-          textAlign: TextAlign.center,
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(
+            'COVID-19 Tracking in Palestine',
+            style: style,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

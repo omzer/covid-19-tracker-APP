@@ -62,6 +62,8 @@ flutter:
     - lib/imgs/sample.png
     - lib/imgs/plus.png
     - lib/imgs/death.png
+    - lib/imgs/male.png
+    - lib/imgs/female.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

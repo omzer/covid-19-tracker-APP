@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/models/region_info.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +9,8 @@ class API {
   final String _baseURL = 'https://www.corona.ps/API';
   final String _regions = 'governorates';
   final String _summary = 'summary';
+  final String _cases = 'cases';
+  final int _casesLoadCapacity = 30;
   static API _api;
 
   static API getInstance() {
@@ -39,5 +42,19 @@ class API {
     dynamic content = json.decode(response.body)['data'];
     var summaryModel = SummaryModel.fromJson(content);
     return summaryModel;
+  }
+
+  Future<List<CaseModel>> getCases() async {
+    String url = '$_baseURL/$_cases';
+    var response = await http.get(url);
+    dynamic content = json.decode(response.body)['data'];
+    List<dynamic> cases = content['cases'];
+    List<CaseModel> recentCases = [];
+
+    for (int i = cases.length - _casesLoadCapacity; i < cases.length; i++) {
+      recentCases.insert(0, CaseModel.fromJson(cases[i]));
+    }
+
+    return recentCases;
   }
 }
