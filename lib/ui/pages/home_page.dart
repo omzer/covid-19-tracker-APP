@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildBodyWidgets() {
-    return ListView(
+    return Column(
       children: <Widget>[
         _buildTitle(),
         _buildSummarySection(),
@@ -25,12 +25,14 @@ class HomePage extends StatelessWidget {
 
   Widget _buildTitle() {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-      child: Text(
-        'COVID-19 Tracking in Palestine',
-        style: style,
-        textAlign: TextAlign.center,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+        child: Text(
+          'COVID-19 Tracking in Palestine',
+          style: style,
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
