@@ -15,4 +15,11 @@ class DecorationUtils {
       child: widget,
     );
   }
+
+  static BoxDecoration getContainerDecoration(double radius, Color color) {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(radius),
+      color: color,
+    );
+  }
 }
