@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/imgs/app_photo.png)
+![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/imgs/demo.gif)
 
 ##### This is an App where you can follow all the updates regarding Coronavirus cases in Palestine, data is being retrieved from a website that is being monitored from the ministry of health in Palestine (Trusted).
 
