@@ -1,6 +1,5 @@
-import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/repo/api.dart';
-import 'package:covidtracker/ui/widgets/case_item.dart';
+import 'package:covidtracker/ui/widgets/animated_cases_list.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
 import 'package:covidtracker/ui/widgets/summary_section.dart';
@@ -34,24 +33,15 @@ class HomePage extends StatelessWidget {
       future: API.getInstance().getCases(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) return Container();
-        return _buildRecentCasesList(snap.data);
+        return AnimatedCasesList(list: snap.data);
       },
-    );
-  }
-
-  Widget _buildRecentCasesList(List<CaseModel> list) {
-    return Expanded(
-      child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: list == null ? 0 : list.length,
-          itemBuilder: (context, index) => CaseItem(caseModel: list[index])),
     );
   }
 
   Widget _buildLatestText() {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
       child: Text(
         'Recent cases',
         style: style,

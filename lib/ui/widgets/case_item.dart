@@ -17,7 +17,7 @@ class CaseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Color(0xAA7E8AB1),
-      margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+      margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
       child: ListTile(
         leading: Image.asset(
           AssetsUtils.getPNGImagePath(
