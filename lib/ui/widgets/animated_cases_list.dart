@@ -11,12 +11,10 @@ class AnimatedCasesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var options = AnimatedLists.LiveOptions(
-      // Start animation after (default zero)
       delay: Duration(milliseconds: 50),
       showItemInterval: Duration(milliseconds: 100),
       showItemDuration: Duration(milliseconds: 250),
       visibleFraction: 0.05,
-
       reAnimateOnVisibility: false,
     );
 
@@ -36,19 +34,16 @@ class AnimatedCasesList extends StatelessWidget {
   }
 
   Widget buildAnimatedItem(context, index, animation, caseModel) {
-    // For example wrap with fade transition
     return FadeTransition(
       opacity: Tween<double>(
         begin: 0,
         end: 1,
       ).animate(animation),
-      // And slide transition
       child: SlideTransition(
         position: Tween<Offset>(
           begin: Offset(-0.1, -0.05),
           end: Offset.zero,
         ).animate(animation),
-        // Paste you Widget
         child: CaseItem(caseModel: caseModel),
       ),
     );
