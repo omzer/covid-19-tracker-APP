@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
   Widget _buildLatestText() {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
       child: Text(
         'Recent cases',
         style: style,
