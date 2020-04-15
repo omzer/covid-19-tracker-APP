@@ -1,3 +1,5 @@
+import 'package:covidtracker/utils/utils.dart';
+
 class SummaryModel {
   String totalCases;
   String totalRecovery;
@@ -10,14 +12,32 @@ class SummaryModel {
   String detailedMap;
 
   SummaryModel.fromJson(dynamic json) {
-    totalCases = json['TotalCases'].toString();
-    totalRecovery = json['TotalRecovery'].toString();
-    totalActiveCases = json['TotalActiveCases'].toString();
-    totalDeath = json['TotalDeath'].toString();
-    totalCriticalCases = json['TotalCriticalCases'].toString();
-    totalTestedSamples = json['TotalTestedSamples'].toString();
-    homeQuarantine = json['HomeQuarantine'].toString();
-    centralQuarantine = json['CentralQuarantine'].toString();
-    detailedMap = json['DetailedMap'].toString();
+    totalCases = Utils.getFormattedNumber(
+      json['TotalCases'].toString(),
+    );
+    totalRecovery = Utils.getFormattedNumber(
+      json['TotalRecovery'].toString(),
+    );
+    totalActiveCases = Utils.getFormattedNumber(
+      json['TotalActiveCases'].toString(),
+    );
+    totalDeath = Utils.getFormattedNumber(
+      json['TotalDeath'].toString(),
+    );
+    totalCriticalCases = Utils.getFormattedNumber(
+      json['TotalCriticalCases'].toString(),
+    );
+    totalTestedSamples = Utils.getFormattedNumber(
+      json['TotalTestedSamples'].toString(),
+    );
+    homeQuarantine = Utils.getFormattedNumber(
+      json['HomeQuarantine'].toString(),
+    );
+    centralQuarantine = Utils.getFormattedNumber(
+      json['CentralQuarantine'].toString(),
+    );
+    detailedMap = Utils.getFormattedNumber(
+      json['DetailedMap'].toString(),
+    );
   }
 }
