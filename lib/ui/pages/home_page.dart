@@ -1,3 +1,5 @@
+import 'package:covidtracker/models/case_model.dart';
+import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/animated_cases_list.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
@@ -7,7 +9,15 @@ import 'package:covidtracker/ui/widgets/summary_section.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  SummaryModel _summaryModel;
+  List<CaseModel> _caseModels;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +40,13 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildRecentSection() {
+    if (_caseModels != null) return AnimatedCasesList(list: _caseModels);
+
     return FutureBuilder(
       future: API.getInstance().getCases(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) return Container();
-        return AnimatedCasesList(list: snap.data);
+        return AnimatedCasesList(list: (_caseModels = snap.data));
       },
     );
   }
@@ -62,12 +74,15 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildSummarySection() {
+    if (_summaryModel != null)
+      return SummarySection(summaryModel: _summaryModel);
+
     return FutureBuilder(
       future: API.getInstance().getSummary(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting)
           return WorldLoading();
-        return Center(child: SummarySection(summaryModel: snap.data));
+        return SummarySection(summaryModel: (_summaryModel = snap.data));
       },
     );
   }
