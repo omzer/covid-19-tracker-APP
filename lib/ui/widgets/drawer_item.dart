@@ -11,12 +11,12 @@ class DrawerItem extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Card(
-        color: Colors.blueGrey.withOpacity(.4),
+        color: Colors.blue.withOpacity(.4),
         child: ListTile(
-          leading: Icon(Icons.info, color: Colors.blueGrey),
+          leading: Icon(Icons.info, color: Colors.blue),
           title: Text(
             title,
-            style: TextStyle(fontSize: 22, color: Colors.blueGrey),
+            style: TextStyle(fontSize: 22, color: Colors.blue),
           ),
         ),
       ),

@@ -10,6 +10,8 @@ class MainPageDrawer extends StatefulWidget {
 }
 
 class _MainPageDrawerState extends State<MainPageDrawer> {
+  Color _back = Color(0xff202a42);
+
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -17,11 +19,11 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: double.infinity,
-        color: Colors.blueGrey.withOpacity(.2),
+        color: _back.withOpacity(.5),
         child: Column(
           children: <Widget>[
             AppBar(
-              backgroundColor: Colors.blueGrey.withOpacity(.35),
+              backgroundColor: _back.withOpacity(.8),
               centerTitle: true,
               title: Text('Quick options'),
               leading: IconButton(
