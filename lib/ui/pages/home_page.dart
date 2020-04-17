@@ -2,6 +2,7 @@ import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/animated_cases_list.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/drawer.dart';
+import 'package:covidtracker/ui/widgets/home_appbar.dart';
 import 'package:covidtracker/ui/widgets/summary_section.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        _buildTitle(),
+        HomeAppBar(),
         _buildSummaryText(),
         _buildSummarySection(),
         _buildLatestText(),
@@ -56,23 +57,6 @@ class HomePage extends StatelessWidget {
       child: Text(
         'Summary',
         style: style,
-      ),
-    );
-  }
-
-  Widget _buildTitle() {
-    TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-        child: SizedBox(
-          width: double.infinity,
-          child: Text(
-            'COVID-19 Tracking in Palestine',
-            style: style,
-            textAlign: TextAlign.center,
-          ),
-        ),
       ),
     );
   }
