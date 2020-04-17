@@ -1,5 +1,9 @@
 import 'dart:ui';
 
+import 'package:covidtracker/ui/pages/about_page.dart';
+import 'package:covidtracker/ui/pages/emergency_numbers_page.dart';
+import 'package:covidtracker/ui/pages/map_page.dart';
+import 'package:covidtracker/ui/pages/statistics_page.dart';
 import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -31,11 +35,26 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
       children: <Widget>[
         _buildAppBar(),
         DrawerItem(
-            title: 'Emergancy numbers', fileName: 'phone', onPress: () {}),
-        DrawerItem(title: 'Infection map', fileName: 'map', onPress: () {}),
-        DrawerItem(title: 'Statistics', fileName: 'chart', onPress: () {}),
+          title: 'Emergancy numbers',
+          fileName: 'phone',
+          page: EmergencyNumbersPage(),
+        ),
+        DrawerItem(
+          title: 'Infection map',
+          fileName: 'map',
+          page: MapPage(),
+        ),
+        DrawerItem(
+          title: 'Statistics',
+          fileName: 'chart',
+          page: StatisticsPage(),
+        ),
         Spacer(),
-        DrawerItem(title: 'About', fileName: 'info', onPress: () {}),
+        DrawerItem(
+          title: 'About',
+          fileName: 'info',
+          page: AboutPage(),
+        ),
       ],
     );
   }
