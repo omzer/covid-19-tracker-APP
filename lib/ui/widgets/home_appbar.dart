@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-class HomeAppBar extends StatelessWidget {
+class DarkAppBar extends StatelessWidget {
   TextStyle _style = TextStyle(fontSize: 20, color: Colors.white);
+  String title;
+
+  DarkAppBar({this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +18,6 @@ class HomeAppBar extends StatelessWidget {
   }
 
   Widget _buildTitle() {
-    return Text('COVID-19 Palestine', style: _style);
+    return Text(title, style: _style);
   }
 }

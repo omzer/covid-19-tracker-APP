@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        HomeAppBar(),
+        DarkAppBar(title: 'COVID-19 Palestine'),
         _buildSummaryText(),
         _buildSummarySection(),
         _buildLatestText(),
