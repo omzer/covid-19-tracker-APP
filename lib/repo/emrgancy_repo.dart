@@ -65,14 +65,6 @@ class EmergencyRepo {
     ));
 
     _emergencyNumbers.add(EmergencyNumberModel(
-      region: 'Bethlehem',
-      fileName: 'Bethlehem',
-      contactName: 'Dr. Nabeel Zawahra',
-      jawwal: '0593716125',
-      watanya: '0562401784',
-    ));
-
-    _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Ramallah',
       fileName: 'Ramallah',
       contactName: 'Dr. Helmi Zyada',
@@ -138,7 +130,7 @@ class EmergencyRepo {
 
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Nothern',
-      fileName: 'Tubas',
+      fileName: 'Jenin',
       contactName: 'Dr. Wesam Subihat',
       jawwal: '0593716139',
       watanya: '0562402099',
@@ -146,7 +138,7 @@ class EmergencyRepo {
 
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Middle',
-      fileName: 'Tubas',
+      fileName: 'Qalqilya',
       contactName: 'Dr. Ali Abd-Rabbuh',
       jawwal: '0593716140',
       watanya: '0562401668',
@@ -154,7 +146,7 @@ class EmergencyRepo {
 
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Southern',
-      fileName: 'Tubas',
+      fileName: 'Jerusalem',
       contactName: 'Dr. Ibrahim El-Shakhrah',
       jawwal: '0593716138',
       watanya: '0562401629',

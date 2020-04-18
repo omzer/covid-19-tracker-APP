@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 class EmergencyContact extends StatelessWidget {
   EmergencyNumberModel model;
   BuildContext mContext;
+  final TextStyle _whiteText = TextStyle(color: Colors.white);
 
   EmergencyContact({this.model});
 
@@ -15,6 +16,8 @@ class EmergencyContact extends StatelessWidget {
   Widget build(BuildContext context) {
     mContext = context;
     return Card(
+      elevation: 2,
+      color: Color(0xff313d57).withOpacity(.75),
       margin: EdgeInsets.fromLTRB(4, 0, 4, 8),
       child: ListTile(
         title: _buildRegionName(),
@@ -34,13 +37,13 @@ class EmergencyContact extends StatelessWidget {
     );
   }
 
-  Widget _buildRegionName() => Text(model.region);
+  Widget _buildRegionName() => Text(model.region, style: _whiteText);
 
-  Widget _buildContactName() => Text(model.contactName);
+  Widget _buildContactName() => Text(model.contactName, style: _whiteText);
 
   Widget _buildCallingButtons() {
     return IconButton(
-      icon: Icon(Icons.call, color: Colors.blue),
+      icon: Icon(Icons.call, color: Colors.white),
       onPressed: _onCallPressed,
     );
   }
