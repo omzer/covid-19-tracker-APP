@@ -23,7 +23,7 @@ class MapPage extends StatelessWidget {
         Expanded(
           child: WebviewScaffold(
             url: API.getInstance().getMapLink(),
-            hidden: false,
+            hidden: true,
             withZoom: true,
           ),
         ),
