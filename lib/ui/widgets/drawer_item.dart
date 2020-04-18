@@ -1,15 +1,16 @@
 import 'package:covidtracker/utils/assets_utils.dart';
+import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
 class DrawerItem extends StatelessWidget {
   String title;
   String fileName;
-  Function onPress;
+  Widget page;
 
   DrawerItem({
     this.title,
     this.fileName,
-    this.onPress,
+    this.page,
   });
 
   @override
@@ -18,7 +19,10 @@ class DrawerItem extends StatelessWidget {
       margin: EdgeInsets.all(4),
       color: Colors.blueAccent.withOpacity(.2),
       child: InkWell(
-        onTap: onPress,
+        onTap: () {
+          NavigationUtils.popPage(context);
+          NavigationUtils.navigateTo(context, page);
+        },
         child: ListTile(
           leading: _buildIcon(),
           title: Text(

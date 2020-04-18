@@ -9,15 +9,17 @@ class SummarySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 15,
-      runSpacing: 15,
-      children: <Widget>[
-        _buildTotalCases(),
-        _buildRecoveredCases(),
-        _buildLostPeople(),
-        _buildTestedSamples(),
-      ],
+    return Center(
+      child: Wrap(
+        spacing: 15,
+        runSpacing: 15,
+        children: <Widget>[
+          _buildTotalCases(),
+          _buildRecoveredCases(),
+          _buildLostPeople(),
+          _buildTestedSamples(),
+        ],
+      ),
     );
   }
 
