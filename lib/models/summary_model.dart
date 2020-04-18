@@ -36,8 +36,6 @@ class SummaryModel {
     centralQuarantine = Utils.getFormattedNumber(
       json['CentralQuarantine'].toString(),
     );
-    detailedMap = Utils.getFormattedNumber(
-      json['DetailedMap'].toString(),
-    );
+    detailedMap = json['DetailedMap'].toString();
   }
 }

@@ -31,6 +31,8 @@ dev_dependencies:
   shared_preferences: 0.5.6+3
   auto_animated: any
   url_launcher: 5.4.2
+  webview_flutter: 0.3.20
+  flutter_webview_plugin: 0.3.11
 
 
 # For information on the generic Dart part of this file, see the

@@ -11,6 +11,7 @@ class API {
   final String _summary = 'summary';
   final String _cases = 'cases';
   final int _casesLoadCapacity = 30;
+  String _mapLink;
   static API _api;
 
   static API getInstance() {
@@ -41,6 +42,7 @@ class API {
     var response = await http.get(url);
     dynamic content = json.decode(response.body)['data'];
     var summaryModel = SummaryModel.fromJson(content);
+    _mapLink = summaryModel.detailedMap;
     return summaryModel;
   }
 
@@ -57,4 +59,6 @@ class API {
 
     return recentCases;
   }
+
+  String getMapLink() => _mapLink;
 }
