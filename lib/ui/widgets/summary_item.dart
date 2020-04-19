@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class SummaryItem extends StatelessWidget {
   Color startColor, endColor;
   String title, subtitle, icon;
+  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
 
   SummaryItem({
     this.startColor,
@@ -69,7 +70,7 @@ class SummaryItem extends StatelessWidget {
       top: 10,
       right: 10,
       child: Image.asset(
-        AssetsUtils.getPNGImagePath(icon),
+        _assetsUtils.getPNGImagePath(icon),
         color: Colors.white,
         width: 30,
       ),

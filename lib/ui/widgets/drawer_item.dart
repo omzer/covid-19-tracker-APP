@@ -3,6 +3,8 @@ import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
 class DrawerItem extends StatelessWidget {
+  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
+  NavigationUtils _navigationUtils = NavigationUtils.getInstance();
   String title;
   String fileName;
   Widget page;
@@ -20,8 +22,8 @@ class DrawerItem extends StatelessWidget {
       color: Colors.blueAccent.withOpacity(.2),
       child: InkWell(
         onTap: () {
-          NavigationUtils.popPage(context);
-          NavigationUtils.navigateTo(context, page);
+          _navigationUtils.popPage(context);
+          _navigationUtils.navigateTo(context, page);
         },
         child: ListTile(
           leading: _buildIcon(),
@@ -35,6 +37,6 @@ class DrawerItem extends StatelessWidget {
   }
 
   Widget _buildIcon() {
-    return Image.asset(AssetsUtils.getPNGImagePath(fileName), width: 30);
+    return Image.asset(_assetsUtils.getPNGImagePath(fileName), width: 30);
   }
 }

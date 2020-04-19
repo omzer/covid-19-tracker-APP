@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class CaseItem extends StatelessWidget {
   CaseModel caseModel;
+  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
 
   CaseItem({this.caseModel});
 
@@ -20,8 +21,8 @@ class CaseItem extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
       child: ListTile(
         leading: Image.asset(
-          AssetsUtils.getPNGImagePath(
-              caseModel.gender == 'Male' ? 'male' : 'female'),
+          _assetsUtils
+              .getPNGImagePath(caseModel.gender == 'Male' ? 'male' : 'female'),
           color: Colors.white,
           width: 40,
         ),

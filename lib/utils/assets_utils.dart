@@ -1,15 +1,19 @@
 class AssetsUtils {
-  static final String _basePath = 'lib';
-  static final String _imagesPath = 'imgs';
-  static final String _jpg = 'jpg';
-  static final String _png = 'png';
+  final String _basePath = 'lib';
+  final String _imagesPath = 'imgs';
+  final String _jpg = 'jpg';
+  final String _png = 'png';
+  static AssetsUtils _assetsUtils;
 
-  static String getJPGImagePath(fileName) {
+  static getInstance() {
+    return _assetsUtils ?? (_assetsUtils = AssetsUtils());
+  }
+
+  String getJPGImagePath(fileName) {
     return '$_basePath/$_imagesPath/$fileName.$_jpg';
   }
 
-  static String getPNGImagePath(fileName) {
+  String getPNGImagePath(fileName) {
     return '$_basePath/$_imagesPath/$fileName.$_png';
   }
-
 }

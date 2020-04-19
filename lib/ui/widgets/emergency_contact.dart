@@ -8,6 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 class EmergencyContact extends StatelessWidget {
   EmergencyNumberModel model;
   BuildContext mContext;
+  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
+  NavigationUtils _navigationUtils = NavigationUtils.getInstance();
   final TextStyle _whiteText = TextStyle(color: Colors.white);
 
   EmergencyContact({this.model});
@@ -31,7 +33,7 @@ class EmergencyContact extends StatelessWidget {
   Widget _buildRegionImage() {
     return CircleAvatar(
       backgroundImage: AssetImage(
-        AssetsUtils.getJPGImagePath(model.fileName),
+        _assetsUtils.getJPGImagePath(model.fileName),
       ),
       radius: 25,
     );
@@ -52,7 +54,7 @@ class EmergencyContact extends StatelessWidget {
     showDialog(
       context: mContext,
       builder: (_) {
-        return CupertinoAlertDialog(
+        return AlertDialog(
           title: Text('What carrier?'),
           content: Text(
             'You are about to call ${model.contactName}\'s phone.\nkeep in mind that this is paid call',
@@ -72,7 +74,7 @@ class EmergencyContact extends StatelessWidget {
   void _onCallWatanyaPressed() => _makePhoneCall(model.watanya);
 
   Future<void> _makePhoneCall(String tel) async {
-    NavigationUtils.popPage(mContext);
+    _navigationUtils.popPage(mContext);
     await launch('tel:$tel');
   }
 }

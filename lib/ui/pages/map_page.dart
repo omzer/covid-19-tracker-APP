@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class MapPage extends StatelessWidget {
+  API _api = API.getInstance();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class MapPage extends StatelessWidget {
         ),
         Expanded(
           child: WebviewScaffold(
-            url: API.getInstance().getMapLink(),
+            url: _api.getMapLink(),
             hidden: true,
             withZoom: true,
           ),

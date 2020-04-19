@@ -11,6 +11,10 @@ class RegionsPage extends StatelessWidget {
   BuildContext _context;
   String _result = 'PS';
   final scrollController = ScrollController();
+  DecorationUtils _decorationUtils = DecorationUtils.getInstance();
+  API _api = API.getInstance();
+  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
+  NavigationUtils _navigationUtils = NavigationUtils.getInstance();
   final options = animatedLists.LiveOptions(
     showItemInterval: Duration(milliseconds: 50),
     // Animation duration (default 250)
@@ -36,7 +40,7 @@ class RegionsPage extends StatelessWidget {
 
   Widget _buildRegionsList() {
     return FutureBuilder(
-      future: API.getInstance().getRegions(),
+      future: _api.getRegions(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) {
           return WorldLoading(size: 80);
@@ -88,13 +92,13 @@ class RegionsPage extends StatelessWidget {
 
   Widget _buildRegionCard(RegionInfo region) {
     final Widget image = Image.asset(
-      AssetsUtils.getJPGImagePath(region.name),
+      _assetsUtils.getJPGImagePath(region.name),
       width: double.infinity,
       fit: BoxFit.cover,
     );
 
     return Card(
-      shape: DecorationUtils.getCardRoundedBorder(_clipValue),
+      shape: _decorationUtils.getCardRoundedBorder(_clipValue),
       elevation: 4,
       child: Stack(
         children: <Widget>[
@@ -102,7 +106,7 @@ class RegionsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                child: DecorationUtils.clipTopWithRadius(image, _clipValue),
+                child: _decorationUtils.clipTopWithRadius(image, _clipValue),
               ),
               Center(child: Text('${region.name}', style: cityTextStyle)),
               Text(' Home Quarantined: ${region.homeQuarantine}'),
@@ -137,7 +141,7 @@ class RegionsPage extends StatelessWidget {
   }
 
   Future<bool> _onPop() async {
-    NavigationUtils.popPageWithData(_context, _result);
+    _navigationUtils.popPageWithData(_context, _result);
     return false;
   }
 }

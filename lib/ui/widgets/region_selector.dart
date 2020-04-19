@@ -13,6 +13,7 @@ class RegionSelector extends StatefulWidget {
 
 class _RegionSelectorState extends State<RegionSelector> {
   String _region = "PS";
+  NavigationUtils _navigationUtils = NavigationUtils.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class _RegionSelectorState extends State<RegionSelector> {
   }
 
   void _onRegionSelectorTapped(context) async {
-    var navigateTo = await NavigationUtils.navigateTo(context, RegionsPage());
+    var navigateTo = await _navigationUtils.navigateTo(context, RegionsPage());
     print(navigateTo);
   }
 

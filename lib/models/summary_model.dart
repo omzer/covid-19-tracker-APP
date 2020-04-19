@@ -1,6 +1,7 @@
 import 'package:covidtracker/utils/utils.dart';
 
 class SummaryModel {
+  Utils _utils = Utils.getInstance();
   String totalCases;
   String totalRecovery;
   String totalActiveCases;
@@ -12,28 +13,28 @@ class SummaryModel {
   String detailedMap;
 
   SummaryModel.fromJson(dynamic json) {
-    totalCases = Utils.getFormattedNumber(
+    totalCases = _utils.getFormattedNumber(
       json['TotalCases'].toString(),
     );
-    totalRecovery = Utils.getFormattedNumber(
+    totalRecovery = _utils.getFormattedNumber(
       json['TotalRecovery'].toString(),
     );
-    totalActiveCases = Utils.getFormattedNumber(
+    totalActiveCases = _utils.getFormattedNumber(
       json['TotalActiveCases'].toString(),
     );
-    totalDeath = Utils.getFormattedNumber(
+    totalDeath = _utils.getFormattedNumber(
       json['TotalDeath'].toString(),
     );
-    totalCriticalCases = Utils.getFormattedNumber(
+    totalCriticalCases = _utils.getFormattedNumber(
       json['TotalCriticalCases'].toString(),
     );
-    totalTestedSamples = Utils.getFormattedNumber(
+    totalTestedSamples = _utils.getFormattedNumber(
       json['TotalTestedSamples'].toString(),
     );
-    homeQuarantine = Utils.getFormattedNumber(
+    homeQuarantine = _utils.getFormattedNumber(
       json['HomeQuarantine'].toString(),
     );
-    centralQuarantine = Utils.getFormattedNumber(
+    centralQuarantine = _utils.getFormattedNumber(
       json['CentralQuarantine'].toString(),
     );
     detailedMap = json['DetailedMap'].toString();
