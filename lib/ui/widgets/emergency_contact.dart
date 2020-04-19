@@ -52,7 +52,7 @@ class EmergencyContact extends StatelessWidget {
     showDialog(
       context: mContext,
       builder: (_) {
-        return CupertinoAlertDialog(
+        return AlertDialog(
           title: Text('What carrier?'),
           content: Text(
             'You are about to call ${model.contactName}\'s phone.\nkeep in mind that this is paid call',
