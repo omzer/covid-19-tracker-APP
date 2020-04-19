@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   SummaryModel _summaryModel;
   List<CaseModel> _caseModels;
+  API _api = API.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     if (_caseModels != null) return AnimatedCasesList(list: _caseModels);
 
     return FutureBuilder(
-      future: API.getInstance().getCases(),
+      future: _api.getCases(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting) return Container();
         return AnimatedCasesList(list: (_caseModels = snap.data));
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
       return SummarySection(summaryModel: _summaryModel);
 
     return FutureBuilder(
-      future: API.getInstance().getSummary(),
+      future: _api.getSummary(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting)
           return WorldLoading();

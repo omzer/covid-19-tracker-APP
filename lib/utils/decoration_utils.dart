@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DecorationUtils {
-  static ShapeBorder getCardRoundedBorder(double radius) {
+  static DecorationUtils _decorationUtils;
+
+  static DecorationUtils getInstance() {
+    return _decorationUtils ?? (_decorationUtils = DecorationUtils());
+  }
+
+  ShapeBorder getCardRoundedBorder(double radius) {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }
 
-  static Widget clipTopWithRadius(Widget widget, double radius) {
+  Widget clipTopWithRadius(Widget widget, double radius) {
     final Radius radiusValue = Radius.circular(radius);
     return ClipRRect(
       borderRadius: BorderRadius.only(
@@ -16,7 +22,7 @@ class DecorationUtils {
     );
   }
 
-  static BoxDecoration getContainerDecoration(double radius, Color color) {
+  BoxDecoration getContainerDecoration(double radius, Color color) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(radius),
       color: color,

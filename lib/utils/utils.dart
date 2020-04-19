@@ -1,5 +1,11 @@
 class Utils {
-  static String getFormattedNumber(String number) {
+  static Utils _utils;
+
+  static Utils getInstance() {
+    return _utils ?? (_utils = Utils());
+  }
+
+  String getFormattedNumber(String number) {
     if (number == null || number.length <= 3) return number;
     String res = '';
     int c = 0;
