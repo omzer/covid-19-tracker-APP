@@ -1,8 +1,34 @@
+import 'package:covidtracker/repo/api.dart';
+import 'package:covidtracker/ui/widgets/charts/daily_cases.dart';
+import 'package:covidtracker/ui/widgets/dark_background.dart';
+import 'package:covidtracker/ui/widgets/home_appbar.dart';
+import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
 class StatisticsPage extends StatelessWidget {
+  API _api = API.getInstance();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Statistics page')));
+    API.getInstance().getChartData();
+    return Scaffold(
+      body: DarkBackground(child: _buildBody()),
+    );
+  }
+
+  Widget _buildBody() {
+    return Column(
+      children: <Widget>[
+        DarkAppBar(title: 'Statistics'),
+        FutureBuilder(
+          future: _api.getChartData(),
+          builder: (context, snap) {
+            if (snap.connectionState == ConnectionState.waiting)
+              return WorldLoading();
+            return DailyCasesChart(dataList: snap.data);
+          },
+        ),
+      ],
+    );
   }
 }

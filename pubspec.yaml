@@ -33,6 +33,7 @@ dev_dependencies:
   url_launcher: 5.4.2
   webview_flutter: 0.3.20
   flutter_webview_plugin: 0.3.11
+  fl_chart: 0.9.2
 
 
 # For information on the generic Dart part of this file, see the
