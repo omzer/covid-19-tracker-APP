@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:covidtracker/models/case_model.dart';
+import 'package:covidtracker/models/chart_data_model.dart';
 import 'package:covidtracker/models/region_info.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:http/http.dart' as http;
@@ -10,6 +11,7 @@ class API {
   final String _regions = 'governorates';
   final String _summary = 'summary';
   final String _cases = 'cases';
+  final String _chart = 'livechart';
   final int _casesLoadCapacity = 30;
   String _mapLink;
   static API _api;
@@ -61,4 +63,19 @@ class API {
   }
 
   String getMapLink() => _mapLink;
+
+  Future<List<ChartDataModel>> getChartData() async {
+    String url = '$_baseURL/$_chart';
+    var response = await http.get(url);
+    List<String> lines = response.body.split('\n');
+    List<ChartDataModel> list = [];
+
+    for (String line in lines) {
+      list.add(ChartDataModel.fromString(line));
+    }
+
+    if (list.isNotEmpty) list.removeAt(0);
+
+    return list;
+  }
 }
