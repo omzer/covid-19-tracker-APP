@@ -69,12 +69,11 @@ class API {
     var response = await http.get(url);
     List<String> lines = response.body.split('\n');
     List<ChartDataModel> list = [];
+    if (lines.isNotEmpty) lines.removeAt(0);
 
     for (String line in lines) {
       list.add(ChartDataModel.fromString(line));
     }
-
-    if (list.isNotEmpty) list.removeAt(0);
 
     return list;
   }

@@ -1,13 +1,14 @@
 class ChartDataModel {
-  String date, infected, healed, lost, active;
+  String date;
+  double infected, healed, lost, active;
 
   ChartDataModel.fromString(String line) {
     List<String> data = line.split(";");
     date = data[0];
-    infected = data[1];
-    healed = data[2];
-    lost = data[3];
-    active = data[4];
+    infected = double.parse(data[1]);
+    healed = double.parse(data[2]);
+    lost = double.parse(data[3]);
+    active = double.parse(data[4]);
   }
 
   @override
