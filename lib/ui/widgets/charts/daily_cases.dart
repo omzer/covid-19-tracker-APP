@@ -13,20 +13,22 @@ class DailyCasesChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.5,
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(18),
+    return Card(
+      margin: EdgeInsets.all(8),
+      child: AspectRatio(
+        aspectRatio: 1.5,
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(18),
+            ),
           ),
-          color: Color(0xff232d37),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-              right: 18.0, left: 12.0, top: 24, bottom: 12),
-          child: LineChart(
-            mainData(),
+          child: Padding(
+            padding: const EdgeInsets.only(
+                right: 18.0, left: 12.0, top: 24, bottom: 12),
+            child: LineChart(
+              mainData(),
+            ),
           ),
         ),
       ),
