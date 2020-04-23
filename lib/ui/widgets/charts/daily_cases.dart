@@ -14,6 +14,7 @@ class DailyCasesChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white30,
       margin: EdgeInsets.all(8),
       child: AspectRatio(
         aspectRatio: 1.5,
@@ -57,9 +58,7 @@ class DailyCasesChart extends StatelessWidget {
         showTitles: true,
         reservedSize: 22,
         textStyle: const TextStyle(
-            color: Color(0xff68737d),
-            fontWeight: FontWeight.bold,
-            fontSize: 16),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
         getTitles: (value) {
           if (value == dataList.length / 2) return 'Active cases';
           return '';
@@ -69,7 +68,7 @@ class DailyCasesChart extends StatelessWidget {
       leftTitles: SideTitles(
         showTitles: true,
         textStyle: const TextStyle(
-          color: Color(0xff67727d),
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 15,
         ),
@@ -127,7 +126,7 @@ class DailyCasesChart extends StatelessWidget {
           belowBarData: BarAreaData(
             show: true,
             colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+                gradientColors.map((color) => color.withOpacity(0.6)).toList(),
           ),
         ),
       ],
