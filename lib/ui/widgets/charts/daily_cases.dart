@@ -35,13 +35,13 @@ class DailyCases extends StatelessWidget {
               bottomTitles: SideTitles(
                 showTitles: true,
                 textStyle: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
                 margin: 8,
                 getTitles: (double value) {
-                  return value == (_maxX / 2).ceil() ? 'Daily cases' : '';
+                  return 'Daily cases';
                 },
               ),
               leftTitles: SideTitles(showTitles: false),

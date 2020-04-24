@@ -18,23 +18,29 @@ class StatisticsPage extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return FutureBuilder(
-      future: _api.getChartData(),
-      builder: (context, snap) {
-        if (snap.connectionState == ConnectionState.waiting)
-          return WorldLoading();
-        return _buildDataGraphs(snap.data);
-      },
+    return Column(
+      children: <Widget>[
+        DarkAppBar(title: 'Statistics'),
+        FutureBuilder(
+          future: _api.getChartData(),
+          builder: (context, snap) {
+            if (snap.connectionState == ConnectionState.waiting)
+              return WorldLoading();
+            return _buildDataGraphs(snap.data);
+          },
+        )
+      ],
     );
   }
 
   Widget _buildDataGraphs(data) {
-    return ListView(
-      children: <Widget>[
-        DarkAppBar(title: 'Statistics'),
-        ActiveCases(dataList: data),
-        DailyCases(dataList: data),
-      ],
+    return Expanded(
+      child: ListView(
+        children: <Widget>[
+          ActiveCases(dataList: data),
+          DailyCases(dataList: data),
+        ],
+      ),
     );
   }
 }
