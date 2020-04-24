@@ -1,5 +1,12 @@
 {
   "app_title": "الكورونا في فلسطين",
   "summary": "الملخص",
-  "recent_cases": "الحالات الجديدة"
+  "recent_cases": "الحالات الجديدة",
+  "quick_options": "الخيارات",
+  "emergency_numbers": "أرقام الطوارئ",
+  "infection_map": "خارطة العدوى",
+  "statistics": "الإحصائات",
+  "details": "التفاصيل",
+  "cities": "المحافظات",
+  "about": "عن التطبيق"
 }

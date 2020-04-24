@@ -1,5 +1,12 @@
 {
   "app_title": "COVID-19 Palestine",
   "summary": "Summary",
-  "recent_cases": "Recent cases"
+  "recent_cases": "Recent cases",
+  "quick_options": "Quick options",
+  "emergency_numbers": "Emergency numbers",
+  "infection_map": "Infection map",
+  "statistics": "Statistics",
+  "details": "Details",
+  "cities": "Cities",
+  "about": "About"
 }
