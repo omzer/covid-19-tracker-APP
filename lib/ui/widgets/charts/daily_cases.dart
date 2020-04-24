@@ -2,133 +2,99 @@ import 'package:covidtracker/models/chart_data_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class DailyCasesChart extends StatelessWidget {
-  List<Color> gradientColors = [
-    const Color(0xff6ecff5),
-    const Color(0xff7ea1f8),
-  ];
+class DailyCases extends StatelessWidget {
   List<ChartDataModel> dataList;
 
-  DailyCasesChart({@required this.dataList});
+  DailyCases({@required this.dataList});
+
+  List<BarChartRodData> _list;
+  double _maxY;
+  int _maxX;
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.5,
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(18),
+    getData();
+    return Card(
+      color: Colors.white,
+      margin: EdgeInsets.all(8),
+      child: AspectRatio(
+        aspectRatio: 1.5,
+        child: BarChart(
+          BarChartData(
+            alignment: BarChartAlignment.center,
+            maxY: _maxY,
+            minY: 0,
+            barTouchData: BarTouchData(
+              enabled: true,
+              touchTooltipData: getToolTip(),
+              allowTouchBarBackDraw: true,
+              handleBuiltInTouches: true,
+            ),
+            titlesData: FlTitlesData(
+              show: true,
+              bottomTitles: SideTitles(
+                showTitles: true,
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+                margin: 8,
+                getTitles: (double value) {
+                  return value == (_maxX / 2).ceil() ? 'Daily cases' : '';
+                },
+              ),
+              leftTitles: SideTitles(showTitles: false),
+            ),
+            borderData: FlBorderData(
+              show: true,
+            ),
+            barGroups: [
+              BarChartGroupData(
+                x: 0,
+                barRods: _list,
+              ),
+            ],
           ),
-          color: Color(0xff232d37),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-              right: 18.0, left: 12.0, top: 24, bottom: 12),
-          child: LineChart(
-            mainData(),
-          ),
         ),
       ),
     );
   }
 
-  FlGridData _buildGridData() {
-    return FlGridData(
-      show: false,
-      verticalInterval: 1,
-      horizontalInterval: 5,
-      drawVerticalLine: true,
-      getDrawingHorizontalLine: (value) {
-        return FlLine(color: const Color(0xff37434d), strokeWidth: 1);
-      },
-      getDrawingVerticalLine: (value) {
-        return FlLine(color: const Color(0xff37434d), strokeWidth: 1);
+  BarTouchTooltipData getToolTip() {
+    return BarTouchTooltipData(
+      tooltipPadding: EdgeInsets.all(3),
+      tooltipBgColor: Colors.black.withOpacity(.6),
+      tooltipBottomMargin: 4,
+      getTooltipItem: (_, __, rod, index) {
+        int val = rod.y.round();
+        return BarTooltipItem(
+            '$val in ${dataList[index].date.substring(5).replaceAll('-', '/')}',
+            TextStyle(color: Colors.white));
       },
     );
   }
 
-  FlTitlesData _buildTitleData() {
-    return FlTitlesData(
-      show: true,
-      bottomTitles: SideTitles(
-        showTitles: true,
-        reservedSize: 22,
-        textStyle: const TextStyle(
-            color: Color(0xff68737d),
-            fontWeight: FontWeight.bold,
-            fontSize: 16),
-        getTitles: (value) {
-          if (value == dataList.length / 2) return 'Active cases';
-          return '';
-        },
-        margin: 8,
-      ),
-      leftTitles: SideTitles(
-        showTitles: true,
-        textStyle: const TextStyle(
-          color: Color(0xff67727d),
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-        ),
-        getTitles: (value) {
-          if (value == 0) return '0';
-          if (value == _maxY) return '${_maxY.toInt()}';
-          return '';
-        },
-        reservedSize: 28,
-        margin: 12,
-      ),
-    );
-  }
-
-  FlBorderData _buildBorderData() {
-    return FlBorderData(
-      show: true,
-      border: Border.all(color: const Color(0xff37434d), width: 1),
-    );
-  }
-
-  double _maxX;
-  double _maxY;
-  List<FlSpot> _spots;
-
-  void prepareData() {
+  void getData() {
+    _list = [];
     _maxY = 0;
-    _spots = [];
     _maxX = 0;
-    for (ChartDataModel data in dataList) {
-      _maxY = data.active > _maxY ? data.active : _maxY;
-      _spots.add(FlSpot(_maxX++, data.active));
-    }
-    _maxX -= 0.5;
-  }
+    for (int i = 0; i < dataList.length; i++) {
+      _maxX++;
+      double val = dataList[i].active - (i == 0 ? 0 : dataList[i - 1].active);
+      // Get abs value
+      if (val < 0) val *= -1;
+      // Calculate maxY
+      if (val > _maxY) _maxY = val;
 
-  LineChartData mainData() {
-    prepareData();
-    return LineChartData(
-      gridData: _buildGridData(),
-      titlesData: _buildTitleData(),
-      borderData: _buildBorderData(),
-      minX: 0,
-      minY: 0,
-      maxX: _maxX,
-      maxY: _maxY + _maxY * 0.1,
-      lineBarsData: [
-        LineChartBarData(
-          spots: _spots,
-          isCurved: true,
-          colors: gradientColors,
-          barWidth: 2,
-          isStrokeCapRound: true,
-          dotData: FlDotData(show: false),
-          belowBarData: BarAreaData(
-            show: true,
-            colors:
-                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
-          ),
+      _list.add(
+        BarChartRodData(
+          y: val,
+          color: Colors.blueAccent,
+          width: 4,
         ),
-      ],
-    );
+      );
+    }
+    _maxY += 5;
   }
 }
