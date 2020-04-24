@@ -21,8 +21,10 @@ class SummaryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _size = MediaQuery.of(context).size.width / 3;
-
+    if (MediaQuery.of(context).orientation == Orientation.portrait)
+      _size = MediaQuery.of(context).size.width / 3;
+    else
+      _size = MediaQuery.of(context).size.height / 3;
     return InkWell(
       onTap: () => _navigation.navigateTo(context, DetailsPage()),
       child: Container(

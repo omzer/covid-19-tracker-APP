@@ -72,6 +72,8 @@ flutter:
     - lib/imgs/map.png
     - lib/imgs/chart.png
     - lib/imgs/info.png
+    - lib/imgs/details.png
+    - lib/imgs/cities.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

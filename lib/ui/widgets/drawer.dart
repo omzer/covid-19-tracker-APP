@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:covidtracker/ui/pages/about_page.dart';
+import 'package:covidtracker/ui/pages/details_page.dart';
 import 'package:covidtracker/ui/pages/emergency_numbers_page.dart';
 import 'package:covidtracker/ui/pages/map_page.dart';
 import 'package:covidtracker/ui/pages/statistics_page.dart';
@@ -23,18 +24,22 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: double.infinity,
         height: double.infinity,
         color: _back.withOpacity(.5),
-        child: _buildDrawerItems(),
+        child: Column(
+          children: <Widget>[
+            _buildAppBar(),
+            Expanded(child: _buildDrawerItems()),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildDrawerItems() {
-    return Column(
+    return ListView(
       children: <Widget>[
-        _buildAppBar(),
         DrawerItem(
           title: 'Emergancy numbers',
           fileName: 'phone',
@@ -50,7 +55,16 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
           fileName: 'chart',
           page: StatisticsPage(),
         ),
-        Spacer(),
+        DrawerItem(
+          title: 'Details',
+          fileName: 'details',
+          page: DetailsPage(),
+        ),
+        DrawerItem(
+          title: 'Cities',
+          fileName: 'cities',
+          page: DetailsPage(),
+        ),
         DrawerItem(
           title: 'About',
           fileName: 'info',
