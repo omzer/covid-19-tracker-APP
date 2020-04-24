@@ -1,4 +1,5 @@
 import 'package:covidtracker/repo/api.dart';
+import 'package:covidtracker/ui/widgets/charts/active_cases.dart';
 import 'package:covidtracker/ui/widgets/charts/daily_cases.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/home_appbar.dart';
@@ -17,17 +18,22 @@ class StatisticsPage extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return Column(
+    return FutureBuilder(
+      future: _api.getChartData(),
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.waiting)
+          return WorldLoading();
+        return _buildDataGraphs(snap.data);
+      },
+    );
+  }
+
+  Widget _buildDataGraphs(data) {
+    return ListView(
       children: <Widget>[
         DarkAppBar(title: 'Statistics'),
-        FutureBuilder(
-          future: _api.getChartData(),
-          builder: (context, snap) {
-            if (snap.connectionState == ConnectionState.waiting)
-              return WorldLoading();
-            return DailyCases(dataList: snap.data);
-          },
-        ),
+        ActiveCases(dataList: data),
+        DailyCases(dataList: data),
       ],
     );
   }

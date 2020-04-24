@@ -9,20 +9,19 @@ class DailyCases extends StatelessWidget {
 
   List<BarChartRodData> _list;
   double _maxY;
-  int _maxIndex;
   int _maxX;
 
   @override
   Widget build(BuildContext context) {
     getData();
     return Card(
-      color: Colors.white30,
+      color: Colors.white,
       margin: EdgeInsets.all(8),
       child: AspectRatio(
         aspectRatio: 1.5,
         child: BarChart(
           BarChartData(
-            alignment: BarChartAlignment.spaceBetween,
+            alignment: BarChartAlignment.center,
             maxY: _maxY,
             minY: 0,
             barTouchData: BarTouchData(
@@ -52,7 +51,6 @@ class DailyCases extends StatelessWidget {
             ),
             barGroups: [
               BarChartGroupData(
-                showingTooltipIndicators: [_maxIndex, dataList.length - 1],
                 x: 0,
                 barRods: _list,
               ),
@@ -87,19 +85,16 @@ class DailyCases extends StatelessWidget {
       // Get abs value
       if (val < 0) val *= -1;
       // Calculate maxY
-      if (val > _maxY) {
-        _maxIndex = i;
-        _maxY = val;
-      }
+      if (val > _maxY) _maxY = val;
 
       _list.add(
         BarChartRodData(
           y: val,
           color: Colors.blueAccent,
-          width: 3,
+          width: 4,
         ),
       );
     }
-    _maxY += 10;
+    _maxY += 5;
   }
 }

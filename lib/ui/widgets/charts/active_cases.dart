@@ -14,7 +14,7 @@ class ActiveCases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white30,
+      color: Colors.white,
       margin: EdgeInsets.all(8),
       child: AspectRatio(
         aspectRatio: 1.5,
@@ -58,7 +58,7 @@ class ActiveCases extends StatelessWidget {
         showTitles: true,
         reservedSize: 22,
         textStyle: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
         getTitles: (value) {
           if (value == dataList.length.ceil() / 2) return 'Active cases';
           return '';
@@ -68,7 +68,7 @@ class ActiveCases extends StatelessWidget {
       leftTitles: SideTitles(
         showTitles: true,
         textStyle: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
           fontSize: 15,
         ),
