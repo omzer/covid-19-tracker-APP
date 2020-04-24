@@ -18,7 +18,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(4),
+      margin: EdgeInsets.fromLTRB(4, 0, 4, 8),
       color: Colors.blueAccent.withOpacity(.2),
       child: InkWell(
         onTap: () {
