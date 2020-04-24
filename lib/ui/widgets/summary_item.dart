@@ -1,10 +1,13 @@
+import 'package:covidtracker/ui/pages/details_page.dart';
 import 'package:covidtracker/utils/assets_utils.dart';
+import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
 class SummaryItem extends StatelessWidget {
   Color startColor, endColor;
   String title, subtitle, icon;
   AssetsUtils _assetsUtils = AssetsUtils.getInstance();
+  var _navigation = NavigationUtils.getInstance();
 
   SummaryItem({
     this.startColor,
@@ -20,14 +23,17 @@ class SummaryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size.width / 3;
 
-    return Container(
-      width: _size,
-      height: _size,
-      decoration: BoxDecoration(
-        gradient: _getCardGradient(),
-        borderRadius: BorderRadius.circular(30),
+    return InkWell(
+      onTap: () => _navigation.navigateTo(context, DetailsPage()),
+      child: Container(
+        width: _size,
+        height: _size,
+        decoration: BoxDecoration(
+          gradient: _getCardGradient(),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: _buildStack(),
       ),
-      child: _buildStack(),
     );
   }
 
