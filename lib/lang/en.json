@@ -8,5 +8,9 @@
   "statistics": "Statistics",
   "details": "Details",
   "cities": "Cities",
-  "about": "About"
+  "about": "About",
+  "total": "Total",
+  "tested_samples": "Tested samples",
+  "recovered": "Recovered",
+  "lost": "Lost"
 }
