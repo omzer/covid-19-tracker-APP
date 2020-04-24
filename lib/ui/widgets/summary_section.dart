@@ -9,6 +9,7 @@ class SummarySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Wrap(
         spacing: 15,

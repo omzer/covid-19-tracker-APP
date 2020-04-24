@@ -14,13 +14,15 @@ class SummaryItem extends StatelessWidget {
     this.icon,
   });
 
-  final double _size = 150;
+  double _size;
 
   @override
   Widget build(BuildContext context) {
+    _size = MediaQuery.of(context).size.width / 3;
+
     return Container(
       width: _size,
-      height: _size - _size * .05,
+      height: _size,
       decoration: BoxDecoration(
         gradient: _getCardGradient(),
         borderRadius: BorderRadius.circular(30),
@@ -40,7 +42,7 @@ class SummaryItem extends StatelessWidget {
   }
 
   final TextStyle _titleStyle = new TextStyle(
-    fontSize: 24,
+    fontSize: 22,
     color: Colors.white,
   );
 
