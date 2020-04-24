@@ -32,18 +32,12 @@ class SummaryModel {
   String totalLostWithJerusalem;
 
   SummaryModel.fromJson(dynamic json) {
-    totalCases = _utils.getFormattedNumber(
-      json['TotalCases'].toString(),
-    );
-    totalRecovery = _utils.getFormattedNumber(
-      json['TotalRecovery'].toString(),
-    );
+    totalCases = json['TotalCases'].toString();
+    totalRecovery = json['TotalRecovery'].toString();
     totalActiveCases = _utils.getFormattedNumber(
       json['TotalActiveCases'].toString(),
     );
-    totalDeath = _utils.getFormattedNumber(
-      json['TotalDeath'].toString(),
-    );
+    totalDeath = json['TotalDeath'].toString();
     totalCriticalCases = _utils.getFormattedNumber(
       json['TotalCriticalCases'].toString(),
     );
