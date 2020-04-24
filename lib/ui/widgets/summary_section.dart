@@ -27,7 +27,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff676ef6),
       endColor: Color(0xff8ba4f8),
-      title: summaryModel.totalCases,
+      title: summaryModel.totalCasesWithJerusalem,
       subtitle: 'Total',
       icon: 'people',
     );
@@ -47,16 +47,16 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
-      title: summaryModel.totalRecovery,
+      title: summaryModel.totalRecoveryWithJerusalem,
       subtitle: 'Recovered  (${_recoveredPercent()}%)',
       icon: 'plus',
     );
   }
 
   int _recoveredPercent() {
-    double total = double.parse(summaryModel.totalCases);
-    double recovered = double.parse(summaryModel.totalRecovery);
-    double death = double.parse(summaryModel.totalDeath);
+    double total = double.parse(summaryModel.totalCasesWithJerusalem);
+    double recovered = double.parse(summaryModel.totalRecoveryWithJerusalem);
+    double death = double.parse(summaryModel.totalLostWithJerusalem);
     return (100 * recovered / (total - death)).floor();
   }
 
@@ -64,7 +64,7 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
-      title: summaryModel.totalDeath,
+      title: summaryModel.totalLostWithJerusalem,
       subtitle: 'Lost',
       icon: 'death',
     );
