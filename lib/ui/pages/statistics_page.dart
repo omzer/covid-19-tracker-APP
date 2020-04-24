@@ -1,6 +1,7 @@
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/charts/active_cases.dart';
 import 'package:covidtracker/ui/widgets/charts/daily_cases.dart';
+import 'package:covidtracker/ui/widgets/charts/summary_chart.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/home_appbar.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
@@ -39,6 +40,7 @@ class StatisticsPage extends StatelessWidget {
         children: <Widget>[
           ActiveCases(dataList: data),
           DailyCases(dataList: data),
+          SummaryChart(),
         ],
       ),
     );
