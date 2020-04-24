@@ -15,5 +15,17 @@
   "lost": "Lost",
   "age": "Age",
   "source": "Source",
-  "record_date": "Record date"
+  "record_date": "Record date",
+  "gaza_strip": "Gaza Strip",
+  "bethlehem": "Bethlehem",
+  "hebron": "Hebron",
+  "jenin": "Jenin",
+  "jericho": "Jericho",
+  "jerusalem": "Jerusalem",
+  "nablus": "Nablus",
+  "qalqilya": "Qalqilya",
+  "ramallah": "Ramallah",
+  "salfit": "Salfit",
+  "tubas": "Tubas",
+  "tulkarm": "Tulkarm"
 }

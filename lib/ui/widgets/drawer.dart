@@ -18,13 +18,11 @@ class MainPageDrawer extends StatefulWidget {
 }
 
 class _MainPageDrawerState extends State<MainPageDrawer> {
-  EzLocalization _localization;
   Color _back = Color(0xff202a42);
   NavigationUtils _navigationUtils = NavigationUtils.getInstance();
 
   @override
   Widget build(BuildContext context) {
-    _localization = EzLocalization.of(context);
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
       child: Container(
@@ -45,32 +43,32 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return ListView(
       children: <Widget>[
         DrawerItem(
-          title: _localization.get('emergency_numbers'),
+          title: context.getString('emergency_numbers'),
           fileName: 'phone',
           page: EmergencyNumbersPage(),
         ),
         DrawerItem(
-          title: _localization.get('infection_map'),
+          title: context.getString('infection_map'),
           fileName: 'map',
           page: MapPage(),
         ),
         DrawerItem(
-          title: _localization.get('statistics'),
+          title: context.getString('statistics'),
           fileName: 'chart',
           page: StatisticsPage(),
         ),
         DrawerItem(
-          title: _localization.get('details'),
+          title: context.getString('details'),
           fileName: 'details',
           page: DetailsPage(),
         ),
         DrawerItem(
-          title: _localization.get('cities'),
+          title: context.getString('cities'),
           fileName: 'cities',
           page: CitiesPage(),
         ),
         DrawerItem(
-          title: _localization.get('about'),
+          title: context.getString('about'),
           fileName: 'info',
           page: AboutPage(),
         ),
@@ -82,7 +80,7 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return AppBar(
       backgroundColor: _back.withOpacity(.8),
       centerTitle: true,
-      title: Text(_localization.get('quick_options')),
+      title: Text(context.getString('quick_options')),
       leading: IconButton(
         icon: Icon(Icons.clear),
         onPressed: () => _navigationUtils.popPage(context),

@@ -19,11 +19,9 @@ class _HomePageState extends State<HomePage> {
   SummaryModel _summaryModel;
   List<CaseModel> _caseModels;
   API _api = API.getInstance();
-  EzLocalization _localization;
 
   @override
   Widget build(BuildContext context) {
-    _localization = EzLocalization.of(context);
     return Scaffold(
       drawer: MainPageDrawer(),
       body: DarkBackground(child: _buildBodyWidgets()),
@@ -34,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        DarkAppBar(title: _localization.get('app_title')),
+        DarkAppBar(title: context.getString('app_title')),
         _buildSummaryText(),
         _buildSummarySection(),
         _buildLatestText(),
@@ -59,7 +57,7 @@ class _HomePageState extends State<HomePage> {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-      child: Text(_localization.get('recent_cases'), style: style),
+      child: Text(context.getString('recent_cases'), style: style),
     );
   }
 
@@ -67,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-      child: Text(_localization.get('summary'), style: style),
+      child: Text(context.getString('summary'), style: style),
     );
   }
 

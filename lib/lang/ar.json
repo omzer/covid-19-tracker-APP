@@ -15,5 +15,17 @@
   "lost": "الميتون",
   "age": "العمر",
   "source": "مصدر الإصابة",
-  "record_date": "تاريخ الإصابة"
+  "record_date": "تاريخ الإصابة",
+  "gaza_strip": "قطاع غزة",
+  "bethlehem": "بيت لحم",
+  "hebron": "الخليل",
+  "jenin": "جنين",
+  "jericho": "أريحا",
+  "jerusalem": "القدس",
+  "nablus": "نابلس",
+  "qalqilya": "قلقيلية",
+  "ramallah": "رام الله",
+  "salfit": "سلفيت",
+  "tubas": "طوباس",
+  "tulkarm": "طولكرم"
 }

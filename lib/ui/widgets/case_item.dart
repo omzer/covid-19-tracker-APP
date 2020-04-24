@@ -10,8 +10,6 @@ class CaseItem extends StatelessWidget {
 
   CaseItem({this.caseModel});
 
-  EzLocalization _localization;
-
   final TextStyle style = TextStyle(
     color: Colors.white,
     fontSize: 16,
@@ -19,7 +17,6 @@ class CaseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _localization = EzLocalization.of(context);
     return Card(
       color: Color(0xAA7E8AB1),
       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
@@ -34,9 +31,10 @@ class CaseItem extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('${_localization.get('age')}: ${caseModel.age}'),
-            Text('${_localization.get('source')}: ${caseModel.source}'),
-            Text('${_localization.get('record_date')}: ${caseModel.recordDate}'),
+            Text('${context.getString('age')}: ${caseModel.age}'),
+            Text('${context.getString('source')}: ${caseModel.source}'),
+            Text(
+                '${context.getString('record_date')}: ${caseModel.recordDate}'),
           ],
         ),
         trailing: NumberBadge(number: caseModel.caseNumber),

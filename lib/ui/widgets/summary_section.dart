@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 
 class SummarySection extends StatelessWidget {
   SummaryModel summaryModel;
+  BuildContext context;
 
   SummarySection({this.summaryModel});
 
-  EzLocalization _localization;
-
   @override
   Widget build(BuildContext context) {
-    _localization = EzLocalization.of(context);
+    this.context = context;
     return Center(
       child: Wrap(
         spacing: 15,
@@ -32,7 +31,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff676ef6),
       endColor: Color(0xff8ba4f8),
       title: summaryModel.totalCasesWithJerusalem,
-      subtitle: _localization.get('total'),
+      subtitle: context.getString('total'),
       icon: 'people',
     );
   }
@@ -42,7 +41,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff36405e),
       endColor: Color(0xff5a668a),
       title: summaryModel.totalTestedSamples,
-      subtitle: _localization.get('tested_samples'),
+      subtitle: context.getString('tested_samples'),
       icon: 'sample',
     );
   }
@@ -52,7 +51,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
       title: summaryModel.totalRecoveryWithJerusalem,
-      subtitle: '${_localization.get('recovered')} (${_recoveredPercent()}%)',
+      subtitle: '${context.getString('recovered')} (${_recoveredPercent()}%)',
       icon: 'plus',
     );
   }
@@ -69,7 +68,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
       title: summaryModel.totalLostWithJerusalem,
-      subtitle: _localization.get('lost'),
+      subtitle: context.getString('lost'),
       icon: 'death',
     );
   }
