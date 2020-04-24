@@ -12,5 +12,8 @@
   "total": "Total",
   "tested_samples": "Tested samples",
   "recovered": "Recovered",
-  "lost": "Lost"
+  "lost": "Lost",
+  "age": "Age",
+  "source": "Source",
+  "record_date": "Record date"
 }

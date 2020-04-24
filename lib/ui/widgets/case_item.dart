@@ -1,6 +1,7 @@
 import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/ui/widgets/number_badge.dart';
 import 'package:covidtracker/utils/assets_utils.dart';
+import 'package:ez_localization/ez_localization.dart';
 import 'package:flutter/material.dart';
 
 class CaseItem extends StatelessWidget {
@@ -9,6 +10,8 @@ class CaseItem extends StatelessWidget {
 
   CaseItem({this.caseModel});
 
+  EzLocalization _localization;
+
   final TextStyle style = TextStyle(
     color: Colors.white,
     fontSize: 16,
@@ -16,6 +19,7 @@ class CaseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _localization = EzLocalization.of(context);
     return Card(
       color: Color(0xAA7E8AB1),
       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
@@ -30,9 +34,9 @@ class CaseItem extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Age: ${caseModel.age}'),
-            Text('Source: ${caseModel.source}'),
-            Text('Record date: ${caseModel.recordDate}'),
+            Text('${_localization.get('age')}: ${caseModel.age}'),
+            Text('${_localization.get('source')}: ${caseModel.source}'),
+            Text('${_localization.get('record_date')}: ${caseModel.recordDate}'),
           ],
         ),
         trailing: NumberBadge(number: caseModel.caseNumber),
