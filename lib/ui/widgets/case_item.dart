@@ -27,7 +27,8 @@ class CaseItem extends StatelessWidget {
           color: Colors.white,
           width: 40,
         ),
-        title: Text('${caseModel.location} - ${caseModel.community}'),
+        title: Text(
+            '${context.getString(caseModel.location.toLowerCase().replaceAll(' ', '_'))} - ${caseModel.community}'),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
