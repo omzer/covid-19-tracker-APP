@@ -39,7 +39,7 @@ class DetailsPage extends StatelessWidget {
         // Westbank
         DetailsItem(
           region: 'Westbank and Gaza',
-          title: 'WestBank: ${model.totalWestbank} Gaza: ${model.totalGaza}',
+          title: 'WestBank: ${model.totalWestbank} - Gaza: ${model.totalGaza}',
           total: model.totalCases,
           lost: model.totalDeath,
           recovery: model.totalRecovery,
@@ -47,15 +47,13 @@ class DetailsPage extends StatelessWidget {
         // Jerusalem
         DetailsItem(
           region: 'Jerusalem',
-          title: 'Cases in jerusalem',
-          total: model.totalLostInJerusalem,
+          total: model.totalCasesInJerusalem,
           lost: model.totalLostInJerusalem,
           recovery: model.totalRecoveryInJerusalem,
         ),
         // Abroad
         DetailsItem(
           region: 'Abroad',
-          title: 'Palestinians outside palestine',
           total: model.totalCasesInAbroad,
           lost: model.totalLostInAbroad,
           recovery: model.totalRecoveryInAbroad,

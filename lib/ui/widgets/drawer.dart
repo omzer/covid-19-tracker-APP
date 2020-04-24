@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:covidtracker/ui/pages/about_page.dart';
+import 'package:covidtracker/ui/pages/cities_page.dart';
 import 'package:covidtracker/ui/pages/details_page.dart';
 import 'package:covidtracker/ui/pages/emergency_numbers_page.dart';
 import 'package:covidtracker/ui/pages/map_page.dart';
@@ -63,7 +64,7 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
         DrawerItem(
           title: 'Cities',
           fileName: 'cities',
-          page: DetailsPage(),
+          page: CitiesPage(),
         ),
         DrawerItem(
           title: 'About',

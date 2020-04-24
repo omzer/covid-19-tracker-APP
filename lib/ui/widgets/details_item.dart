@@ -22,12 +22,25 @@ class DetailsItem extends StatelessWidget {
         child: Column(
           children: <Widget>[
             _buildRegion(),
+            _buildTitle(),
             SizedBox(height: 8),
             _buildTotal(),
             _buildRecovery(),
             _buildLost(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildTitle() {
+    if (title == null) return SizedBox();
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: Colors.white.withOpacity(.7),
       ),
     );
   }
