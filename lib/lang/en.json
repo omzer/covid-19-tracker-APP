@@ -1,3 +1,5 @@
 {
-  "hello": "Hello !"
+  "app_title": "COVID-19 Palestine",
+  "summary": "Summary",
+  "recent_cases": "Recent cases"
 }
