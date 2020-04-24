@@ -25,7 +25,7 @@ class StatisticsPage extends StatelessWidget {
           builder: (context, snap) {
             if (snap.connectionState == ConnectionState.waiting)
               return WorldLoading();
-            return DailyCasesChart(dataList: snap.data);
+            return DailyCases(dataList: snap.data);
           },
         ),
       ],
