@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/ui/pages/about_page.dart';
 import 'package:covidtracker/ui/pages/cities_page.dart';
 import 'package:covidtracker/ui/pages/details_page.dart';
@@ -7,7 +8,6 @@ import 'package:covidtracker/ui/pages/emergency_numbers_page.dart';
 import 'package:covidtracker/ui/pages/map_page.dart';
 import 'package:covidtracker/ui/pages/statistics_page.dart';
 import 'package:covidtracker/utils/navigation_utils.dart';
-import 'package:ez_localization/ez_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_item.dart';
@@ -43,32 +43,32 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return ListView(
       children: <Widget>[
         DrawerItem(
-          title: context.getString('emergency_numbers'),
+          title: AppLocale.getString(context, 'emergency_numbers'),
           fileName: 'phone',
           page: EmergencyNumbersPage(),
         ),
         DrawerItem(
-          title: context.getString('infection_map'),
+          title: AppLocale.getString(context, 'infection_map'),
           fileName: 'map',
           page: MapPage(),
         ),
         DrawerItem(
-          title: context.getString('statistics'),
+          title: AppLocale.getString(context, 'statistics'),
           fileName: 'chart',
           page: StatisticsPage(),
         ),
         DrawerItem(
-          title: context.getString('details'),
+          title: AppLocale.getString(context, 'details'),
           fileName: 'details',
           page: DetailsPage(),
         ),
         DrawerItem(
-          title: context.getString('cities'),
+          title: AppLocale.getString(context, 'cities'),
           fileName: 'cities',
           page: CitiesPage(),
         ),
         DrawerItem(
-          title: context.getString('about'),
+          title: AppLocale.getString(context, 'about'),
           fileName: 'info',
           page: AboutPage(),
         ),
@@ -80,7 +80,7 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return AppBar(
       backgroundColor: _back.withOpacity(.8),
       centerTitle: true,
-      title: Text(context.getString('quick_options')),
+      title: Text(AppLocale.getString(context, 'quick_options')),
       leading: IconButton(
         icon: Icon(Icons.clear),
         onPressed: () => _navigationUtils.popPage(context),

@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
   // Init localization
   EzLocalizationDelegate ezLocalization = EzLocalizationDelegate(
     getPathFunction: (locale) => 'lib/lang/$locale.json',
-    notFoundString: '???',
     supportedLocales: [Locale('en'), Locale('ar')],
   );
 

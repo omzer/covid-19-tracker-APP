@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/emrgency_number_model.dart';
 import 'package:covidtracker/utils/assets_utils.dart';
 import 'package:covidtracker/utils/navigation_utils.dart';
@@ -39,7 +40,10 @@ class EmergencyContact extends StatelessWidget {
     );
   }
 
-  Widget _buildRegionName() => Text(model.region, style: _whiteText);
+  Widget _buildRegionName() {
+    String city = AppLocale.getCityTranslation(mContext, model.region);
+    return Text(city, style: _whiteText);
+  }
 
   Widget _buildContactName() => Text(model.contactName, style: _whiteText);
 

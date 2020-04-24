@@ -1,6 +1,6 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/ui/widgets/summary_item.dart';
-import 'package:ez_localization/ez_localization.dart';
 import 'package:flutter/material.dart';
 
 class SummarySection extends StatelessWidget {
@@ -31,7 +31,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff676ef6),
       endColor: Color(0xff8ba4f8),
       title: summaryModel.totalCasesWithJerusalem,
-      subtitle: context.getString('total'),
+      subtitle: AppLocale.getString(context, 'total'),
       icon: 'people',
     );
   }
@@ -41,7 +41,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff36405e),
       endColor: Color(0xff5a668a),
       title: summaryModel.totalTestedSamples,
-      subtitle: context.getString('tested_samples'),
+      subtitle: AppLocale.getString(context, 'tested_samples'),
       icon: 'sample',
     );
   }
@@ -51,7 +51,8 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
       title: summaryModel.totalRecoveryWithJerusalem,
-      subtitle: '${context.getString('recovered')} (${_recoveredPercent()}%)',
+      subtitle:
+          '${AppLocale.getString(context, 'recovered')} (${_recoveredPercent()}%)',
       icon: 'plus',
     );
   }
@@ -68,7 +69,7 @@ class SummarySection extends StatelessWidget {
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
       title: summaryModel.totalLostWithJerusalem,
-      subtitle: context.getString('lost'),
+      subtitle: AppLocale.getString(context, 'lost'),
       icon: 'death',
     );
   }

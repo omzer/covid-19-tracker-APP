@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
@@ -7,7 +8,6 @@ import 'package:covidtracker/ui/widgets/drawer.dart';
 import 'package:covidtracker/ui/widgets/home_appbar.dart';
 import 'package:covidtracker/ui/widgets/summary_section.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
-import 'package:ez_localization/ez_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        DarkAppBar(title: context.getString('app_title')),
+        DarkAppBar(title: AppLocale.getString(context, 'app_title')),
         _buildSummaryText(),
         _buildSummarySection(),
         _buildLatestText(),
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-      child: Text(context.getString('recent_cases'), style: style),
+      child: Text(AppLocale.getString(context, 'recent_cases'), style: style),
     );
   }
 
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-      child: Text(context.getString('summary'), style: style),
+      child: Text(AppLocale.getString(context, 'summary'), style: style),
     );
   }
 
