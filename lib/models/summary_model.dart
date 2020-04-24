@@ -57,7 +57,6 @@ class SummaryModel {
       json['CentralQuarantine'].toString(),
     );
     detailedMap = json['DetailedMap'].toString();
-
     totalCasesInJerusalem = _utils.getFormattedNumber(
       json['JerusalemCityCases'].toString(),
     );
@@ -67,7 +66,6 @@ class SummaryModel {
     totalLostInJerusalem = _utils.getFormattedNumber(
       json['JerusalemCityDeaths'].toString(),
     );
-
     totalCasesInAbroad = _utils.getFormattedNumber(
       json['AbroadCases'].toString(),
     );
@@ -89,41 +87,8 @@ class SummaryModel {
     totalWestbank = _utils.getFormattedNumber(
       json['TotalWestBankCases'].toString(),
     );
-    totalWestbank = _utils.getFormattedNumber(
+    totalGaza = _utils.getFormattedNumber(
       json['TotalGazaCases'].toString(),
     );
   }
 }
-/*
-* {
-  "data": {
-    "LastUpdated": "2020-04-23T22:24:38+03:00",
-    "TotalCases": 336,
-    "TotalRecovery": 74,
-    "TotalActiveCases": 260,
-    "TotalDeath": 2,
-    "TotalCriticalCases": 0,
-    "TotalTestedSamples": 27000,
-    "HomeQuarantine": "10318",
-    "HomeQuarantineCumulative": 37562,
-    "CentralQuarantine": "N/A",
-    * "DetailedMap": "https://datawrapper.dwcdn.net/5Mdug/81/",
-
-    "JerusalemCityCases": "144",
-    "JerusalemCityRecovery": "18",
-    "JerusalemCityDeaths": "2",
-
-    "AbroadCases": "1053",
-    "AbroadRecovery": "298",
-    "AbroadDeaths": "49",
-  --------------
-  *
-    "TotalPalestineCases": 480,
-    "TotalPalestineRecovery": 92,
-    "TotalPalestineDeath": 4,
---------------
-    *
-    "TotalWestBankCases": 319,
-    "TotalGazaCases": 17
-  }
-}*/
