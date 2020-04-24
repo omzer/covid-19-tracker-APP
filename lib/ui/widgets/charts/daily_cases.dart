@@ -64,7 +64,7 @@ class DailyCases extends StatelessWidget {
   BarTouchTooltipData getToolTip() {
     return BarTouchTooltipData(
       tooltipPadding: EdgeInsets.all(3),
-      tooltipBgColor: Colors.black.withOpacity(.3),
+      tooltipBgColor: Colors.black.withOpacity(.6),
       tooltipBottomMargin: 4,
       getTooltipItem: (_, __, rod, index) {
         int val = rod.y.round();
