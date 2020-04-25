@@ -19,7 +19,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Jerusalem',
       fileName: 'Jerusalem',
-      contactName: 'Dr. Fares Qatanani',
+      contactNameEng: 'Dr. Fares Qatanani',
+      contactNameAra: 'د.فارس قطناني',
       jawwal: '0593716120',
       watanya: '0562401994',
     ));
@@ -27,7 +28,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Hebron',
       fileName: 'Hebron',
-      contactName: 'Dr. Mohammad El-Sa\'afeen',
+      contactNameEng: 'Dr. Mohammad El-Sa\'afeen',
+      contactNameAra: 'د.محمد السعافين',
       jawwal: '0593716121',
       watanya: '0562401774',
     ));
@@ -35,7 +37,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Northern Hebron',
       fileName: 'Hebron',
-      contactName: 'Dr. Maher Melhem',
+      contactNameEng: 'Dr. Maher Melhem',
+      contactNameAra: 'د.ماهر ملحم',
       jawwal: '0593716122',
       watanya: '0562401442',
     ));
@@ -43,7 +46,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Southern Hebron',
       fileName: 'Hebron',
-      contactName: 'Dr. Mohteser El-Qawasmi',
+      contactNameEng: 'Dr. Mohteser El-Qawasmi',
+      contactNameAra: 'د.منتصر القواسمي',
       jawwal: '0593716123',
       watanya: '0562401243',
     ));
@@ -51,7 +55,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Yatta',
       fileName: 'Hebron',
-      contactName: 'Dr. Issa Allan',
+      contactNameEng: 'Dr. Issa Allan',
+      contactNameAra: 'د.عيسى علان',
       jawwal: '0593716124',
       watanya: '0562402180',
     ));
@@ -59,7 +64,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Bethlehem',
       fileName: 'Bethlehem',
-      contactName: 'Dr. Nabeel Zawahra',
+      contactNameEng: 'Dr. Nabeel Zawahra',
+      contactNameAra: 'د.نبيل زواهرة',
       jawwal: '0593716125',
       watanya: '0562401784',
     ));
@@ -67,7 +73,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Ramallah',
       fileName: 'Ramallah',
-      contactName: 'Dr. Helmi Zyada',
+      contactNameEng: 'Dr. Helmi Zyada',
+      contactNameAra: 'د.حلمي زيادة',
       jawwal: '0593716126',
       watanya: '0562401269',
     ));
@@ -75,7 +82,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Jericho',
       fileName: 'Jericho',
-      contactName: 'Dr. Tariq Hawash',
+      contactNameEng: 'Dr. Tariq Hawash',
+      contactNameAra: 'د.طارق حواش',
       jawwal: '0593716127',
       watanya: '0562401867',
     ));
@@ -83,7 +91,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Salfit',
       fileName: 'Salfit',
-      contactName: 'Dr. Joma El-Sha\'ibi',
+      contactNameEng: 'Dr. Joma El-Sha\'ibi',
+      contactNameAra: 'د.جمعة الشعيبي',
       jawwal: '0593716128',
       watanya: '0562402035',
     ));
@@ -91,7 +100,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Nablus',
       fileName: 'Nablus',
-      contactName: 'Dr. Elaf Abu-Zaroor',
+      contactNameEng: 'Dr. Elaf Abu-Zaroor',
+      contactNameAra: 'د.ايلاف أبو زعرور',
       jawwal: '0593716129',
       watanya: '0562401956',
     ));
@@ -99,7 +109,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Qalqilya',
       fileName: 'Qalqilya',
-      contactName: 'Dr. Mohammad Sweleih',
+      contactNameEng: 'Dr. Mohammad Sweleih',
+      contactNameAra: 'د.محمد أبو صوليح',
       jawwal: '0593716130',
       watanya: '0562401890',
     ));
@@ -107,7 +118,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Tulkarm',
       fileName: 'Tulkarm',
-      contactName: 'Dr. Ihab Awwad',
+      contactNameEng: 'Dr. Ihab Awwad',
+      contactNameAra: 'د.ايهاب عواد',
       jawwal: '0593716131',
       watanya: '0562401047',
     ));
@@ -115,7 +127,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Jenin',
       fileName: 'Jenin',
-      contactName: 'Dr. Abdullah Abu-Hatab',
+      contactNameEng: 'Dr. Abdullah Abu-Hatab',
+      contactNameAra: 'د.عبد الله أبو حطب',
       jawwal: '0593716132',
       watanya: '0562402098',
     ));
@@ -123,7 +136,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Tubas',
       fileName: 'Tubas',
-      contactName: 'Dr. Qadri Daraghmah',
+      contactNameEng: 'Dr. Qadri Daraghmah',
+      contactNameAra: 'د.قدري دراغمة',
       jawwal: '0593716133',
       watanya: '0599201146',
     ));
@@ -131,7 +145,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Northern',
       fileName: 'Jenin',
-      contactName: 'Dr. Wesam Subihat',
+      contactNameEng: 'Dr. Wesam Subihat',
+      contactNameAra: 'د.وسام صبيحات',
       jawwal: '0593716139',
       watanya: '0562402099',
     ));
@@ -139,7 +154,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Middle',
       fileName: 'Qalqilya',
-      contactName: 'Dr. Ali Abd-Rabbuh',
+      contactNameEng: 'Dr. Ali Abd-Rabbuh',
+      contactNameAra: 'د.علي عبد ربو',
       jawwal: '0593716140',
       watanya: '0562401668',
     ));
@@ -147,7 +163,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Southern',
       fileName: 'Jerusalem',
-      contactName: 'Dr. Ibrahim El-Shakhrah',
+      contactNameEng: 'Dr. Ibrahim El-Shakhrah',
+      contactNameAra: 'د.ابراهيم الشخرة',
       jawwal: '0593716138',
       watanya: '0562401629',
     ));
@@ -155,7 +172,8 @@ class EmergencyRepo {
     _emergencyNumbers.add(EmergencyNumberModel(
       region: 'Jericho and Jordan valley',
       fileName: 'Jericho',
-      contactName: 'Dr. Arb Anany',
+      contactNameEng: 'Dr. Arb Anany',
+      contactNameAra: 'د.أرب عناني',
       jawwal: '0593714137',
       watanya: '0562401872',
     ));

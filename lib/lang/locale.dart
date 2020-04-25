@@ -18,4 +18,8 @@ class AppLocale {
     String city = _get(context, key.toLowerCase().replaceAll(' ', '_'));
     return city ?? key;
   }
+
+  static String getDeviceLocale(BuildContext context) {
+    return EzLocalization.of(context).locale.languageCode;
+  }
 }

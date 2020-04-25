@@ -46,5 +46,10 @@
   "westbank": "Westbank",
   "total_cases": "Total Cases",
   "total_recovery": "Total Recovery",
-  "total_lost": "Total lost"
+  "total_lost": "Total lost",
+  "you_are_calling": "You are about to call",
+  "keep_in_mind": "'s phone.\nKeep in mind that this is paid call",
+  "what_carrier": "What carrier?",
+  "jawwal": "Jawwal",
+  "watanya": "Watanya"
 }
