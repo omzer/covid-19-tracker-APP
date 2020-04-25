@@ -33,33 +33,5 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
-    - lib/imgs/globe.gif
-    - lib/imgs/Jericho.jpg
-    - lib/imgs/Jerusalem.jpg
-    - lib/imgs/Bethlehem.jpg
-    - lib/imgs/Jenin.jpg
-    - lib/imgs/Ramallah.jpg
-    - lib/imgs/Salfit.jpg
-    - lib/imgs/Hebron.jpg
-    - lib/imgs/Tubas.jpg
-    - lib/imgs/Tulkarm.jpg
-    - lib/imgs/GazaStrip.jpg
-    - lib/imgs/Qalqilya.jpg
-    - lib/imgs/Nablus.jpg
-    - lib/imgs/people.png
-    - lib/imgs/sample.png
-    - lib/imgs/plus.png
-    - lib/imgs/death.png
-    - lib/imgs/male.png
-    - lib/imgs/female.png
-    - lib/imgs/phone.png
-    - lib/imgs/map.png
-    - lib/imgs/chart.png
-    - lib/imgs/info.png
-    - lib/imgs/details.png
-    - lib/imgs/cities.png
-    - lib/imgs/icon.png
-    - lib/lang/ar.json
-    - lib/lang/en.json
-
-
+    - lib/imgs/
+    - lib/lang/
