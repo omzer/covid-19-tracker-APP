@@ -34,5 +34,9 @@
   "northern": "مدن الشمال",
   "middle": "مدن الوسط",
   "southern": "مدن الجنوب",
-  "jericho_and_jordan_valley": "أريحا وغور الأردن"
+  "jericho_and_jordan_valley": "أريحا وغور الأردن",
+  "contact_with_infected_tourists": "مخالطة سياح",
+  "contact_with_infected_persons": "مخالطة شخص مصاب",
+  "worker_in_israel": "العمل في الداخل",
+  "return_from_travel": "العودة من السفر"
 }

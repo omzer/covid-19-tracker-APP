@@ -14,7 +14,7 @@ class AppLocale {
     return _getOrDefault(context, key);
   }
 
-  static String getCityTranslation(BuildContext context, String key) {
+  static String getUnknownString(BuildContext context, String key) {
     String city = _get(context, key.toLowerCase().replaceAll(' ', '_'));
     return city ?? key;
   }

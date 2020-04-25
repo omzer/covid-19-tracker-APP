@@ -17,7 +17,8 @@ class CaseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String city = AppLocale.getCityTranslation(context, caseModel.location);
+    String city = AppLocale.getUnknownString(context, caseModel.location);
+    String source = AppLocale.getUnknownString(context, caseModel.source);
     return Card(
       color: Color(0xAA7E8AB1),
       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
@@ -34,7 +35,7 @@ class CaseItem extends StatelessWidget {
           children: <Widget>[
             Text('${AppLocale.getString(context, 'age')}: ${caseModel.age}'),
             Text(
-              '${AppLocale.getString(context, 'source')}: ${caseModel.source}',
+              '${AppLocale.getString(context, 'source')}: $source',
             ),
             Text(
               '${AppLocale.getString(context, 'record_date')}: ${caseModel.recordDate}',

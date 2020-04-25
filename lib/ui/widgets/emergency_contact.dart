@@ -41,7 +41,7 @@ class EmergencyContact extends StatelessWidget {
   }
 
   Widget _buildRegionName() {
-    String city = AppLocale.getCityTranslation(mContext, model.region);
+    String city = AppLocale.getUnknownString(mContext, model.region);
     return Text(city, style: _whiteText);
   }
 
