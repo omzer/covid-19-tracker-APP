@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/chart_data_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +8,14 @@ class DailyCases extends StatelessWidget {
 
   DailyCases({@required this.dataList});
 
+  BuildContext context;
   List<BarChartRodData> _list;
   double _maxY;
   int _maxX;
 
   @override
   Widget build(BuildContext context) {
+    this.context = context;
     getData();
     return Card(
       color: Colors.white,
@@ -41,7 +44,7 @@ class DailyCases extends StatelessWidget {
                 ),
                 margin: 8,
                 getTitles: (double value) {
-                  return 'Daily cases';
+                  return AppLocale.getString(context, 'daily_cases');
                 },
               ),
               leftTitles: SideTitles(showTitles: false),

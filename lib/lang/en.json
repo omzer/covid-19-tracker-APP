@@ -12,6 +12,7 @@
   "total": "Total",
   "tested_samples": "Tested samples",
   "recovered": "Recovered",
+  "active": "Active",
   "lost": "Lost",
   "age": "Age",
   "source": "Source",
@@ -38,5 +39,6 @@
   "contact_with_infected_tourists": "Contact with infected tourists",
   "contact_with_infected_persons": "Contact with infected persons",
   "worker_in_israel": "Worker in Israel",
-  "return_from_travel": "Return from travel"
+  "return_from_travel": "Return from travel",
+  "daily_cases": "Daily cases"
 }

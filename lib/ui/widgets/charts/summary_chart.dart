@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -61,17 +62,17 @@ class SummaryChartState extends State {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const <Widget>[
+      children: <Widget>[
         Text(
-          'Active',
+          AppLocale.getString(context, 'active'),
           style: TextStyle(fontSize: 18, color: Color(0xff676ef6)),
         ),
         Text(
-          'Recovered',
+          AppLocale.getString(context, 'recovered'),
           style: TextStyle(fontSize: 18, color: Color(0xff62a340)),
         ),
         Text(
-          'Lost',
+          AppLocale.getString(context, 'lost'),
           style: TextStyle(fontSize: 18, color: Color(0xffd05a81)),
         ),
         SizedBox(height: 40),

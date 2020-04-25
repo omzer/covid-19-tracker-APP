@@ -13,6 +13,7 @@
   "tested_samples": "العينات المفحوصة",
   "recovered": "المتعافون",
   "lost": "الميتون",
+  "active": "الفعّالة",
   "age": "العمر",
   "source": "مصدر الإصابة",
   "record_date": "تاريخ الإصابة",
@@ -38,5 +39,6 @@
   "contact_with_infected_tourists": "مخالطة سياح",
   "contact_with_infected_persons": "مخالطة شخص مصاب",
   "worker_in_israel": "العمل في الداخل",
-  "return_from_travel": "العودة من السفر"
+  "return_from_travel": "العودة من السفر",
+  "daily_cases": "الحالات اليومية"
 }
