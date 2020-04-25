@@ -40,9 +40,9 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xff36405e),
       endColor: Color(0xff5a668a),
-      title: summaryModel.totalTestedSamples,
-      subtitle: AppLocale.getString(context, 'tested_samples'),
-      icon: 'sample',
+      title: summaryModel.totalLostWithJerusalem,
+      subtitle: AppLocale.getString(context, 'lost'),
+      icon: 'death',
     );
   }
 
@@ -68,9 +68,9 @@ class SummarySection extends StatelessWidget {
     return SummaryItem(
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
-      title: summaryModel.totalLostWithJerusalem,
-      subtitle: AppLocale.getString(context, 'lost'),
-      icon: 'death',
+      title: summaryModel.totalTestedSamples,
+      subtitle: AppLocale.getString(context, 'tested_samples'),
+      icon: 'sample',
     );
   }
 }

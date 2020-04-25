@@ -37,11 +37,14 @@ class EmergencyContact extends StatelessWidget {
       elevation: 2,
       color: Color(0xff313d57).withOpacity(.75),
       margin: EdgeInsets.fromLTRB(4, 0, 4, 8),
-      child: ListTile(
-        title: _buildRegionName(),
-        subtitle: _buildContactName(),
-        leading: _buildRegionImage(),
-        trailing: _buildCallingButtons(),
+      child: InkWell(
+        onTap: _onCallPressed,
+        child: ListTile(
+          title: _buildRegionName(),
+          subtitle: _buildContactName(),
+          leading: _buildRegionImage(),
+          trailing: _buildCallingButtons(),
+        ),
       ),
     );
   }
@@ -62,12 +65,7 @@ class EmergencyContact extends StatelessWidget {
 
   Widget _buildContactName() => Text(_contactName, style: _whiteText);
 
-  Widget _buildCallingButtons() {
-    return IconButton(
-      icon: Icon(Icons.call, color: Colors.white),
-      onPressed: _onCallPressed,
-    );
-  }
+  Widget _buildCallingButtons() => Icon(Icons.call, color: Colors.white);
 
   void _onCallPressed() {
     showDialog(
