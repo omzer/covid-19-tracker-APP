@@ -1,4 +1,5 @@
 import 'package:covidtracker/lang/locale.dart';
+import 'package:covidtracker/ui/widgets/about_items/about_app.dart';
 import 'package:covidtracker/ui/widgets/about_items/about_developer.dart';
 import 'package:covidtracker/ui/widgets/about_items/data_source.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
@@ -31,6 +32,7 @@ class AboutPage extends StatelessWidget {
     return ListView(
       children: <Widget>[
         DataSource(),
+        AboutApp(),
         AboutDeveloper(),
       ],
     );

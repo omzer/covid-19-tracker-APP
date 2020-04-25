@@ -3,7 +3,7 @@ import 'package:covidtracker/utils/assets_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class AboutDeveloper extends StatelessWidget {
+class AboutApp extends StatelessWidget {
   AssetsUtils _assetsUtils = AssetsUtils.getInstance();
 
   @override
@@ -15,19 +15,13 @@ class AboutDeveloper extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         child: ListTile(
           leading: Image.asset(
-            _assetsUtils.getPNGImagePath('developer'),
-            width: 30,
-            height: 30,
+            _assetsUtils.getPNGImagePath('app'),
+            width: 40,
+            height: 40,
           ),
-          title: Text(AppLocale.getString(context, 'about_developer')),
-          subtitle: Text(AppLocale.getString(context, 'developed_by')),
-          trailing: Wrap(
-            children: <Widget>[
-              _buildIcon('facebook', _openFacebook),
-              SizedBox(width: 10),
-              _buildIcon('gmail', _sendMail),
-            ],
-          ),
+          title: Text(AppLocale.getString(context, 'about_app')),
+          subtitle: Text(AppLocale.getString(context, 'app_info')),
+          trailing: _buildIcon('github', _openRepo),
         ),
       ),
     );
@@ -44,7 +38,5 @@ class AboutDeveloper extends StatelessWidget {
     );
   }
 
-  void _openFacebook() => launch('http:fb.me/sha.sfx');
-
-  void _sendMail() => launch('mailto:oz9.sa7@gmail.com');
+  void _openRepo() => launch('http:github.com/omzer/covid-19-tracker-APP');
 }
