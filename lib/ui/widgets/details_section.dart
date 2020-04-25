@@ -1,4 +1,3 @@
-import 'package:covidtracker/ui/pages/details_page.dart';
 import 'package:covidtracker/utils/assets_utils.dart';
 import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
@@ -37,9 +36,11 @@ class DetailsSection extends StatelessWidget {
   }
 
   Widget _buildStack() {
-    return Stack(
+    return Row(
       children: <Widget>[
+        SizedBox(width: 8),
         _buildIcon(),
+        SizedBox(width: 10),
         _buildSubTitle(),
       ],
     );
@@ -51,24 +52,14 @@ class DetailsSection extends StatelessWidget {
   );
 
   Widget _buildSubTitle() {
-    return Positioned(
-      top: 10,
-      bottom: 10,
-      left: 60,
-      child: Text(title, style: _subtitleStyle),
-    );
+    return Text(title, style: _subtitleStyle);
   }
 
   Widget _buildIcon() {
-    return Positioned(
-      top: 10,
-      bottom: 10,
-      left: 10,
-      child: Image.asset(
-        _assetsUtils.getPNGImagePath(icon),
-        color: Colors.white,
-        width: 30,
-      ),
+    return Image.asset(
+      _assetsUtils.getPNGImagePath(icon),
+      color: Colors.white,
+      width: 30,
     );
   }
 

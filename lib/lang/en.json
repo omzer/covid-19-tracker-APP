@@ -43,5 +43,8 @@
   "daily_cases": "Daily cases",
   "abroad": "Abroad",
   "westbank_and_gaza": "Westbank and Gaza",
-  "westbank": "Westbank"
+  "westbank": "Westbank",
+  "total_cases": "Total Cases",
+  "total_recovery": "Total Recovery",
+  "total_lost": "Total lost"
 }

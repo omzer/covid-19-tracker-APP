@@ -43,5 +43,8 @@
   "daily_cases": "الحالات اليومية",
   "abroad": "المهجر",
   "westbank_and_gaza": "الضفة وقطاع غزة",
-  "westbank": "الضفة الغربية"
+  "westbank": "الضفة الغربية",
+  "total_cases": "مجوع المصابين",
+  "total_recovery": "مجموع المتعافين",
+  "total_lost": "مجموع المتوفين"
 }
