@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/region_info.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
@@ -8,10 +9,12 @@ import 'package:flutter/material.dart';
 
 class CitiesPage extends StatelessWidget {
   API _api = API.getInstance();
+  BuildContext context;
 
   @override
   Widget build(BuildContext context) {
     API.getInstance().getChartData();
+    this.context = context;
     return Scaffold(
       body: DarkBackground(child: _buildBody()),
     );
@@ -20,7 +23,7 @@ class CitiesPage extends StatelessWidget {
   Widget _buildBody() {
     return Column(
       children: <Widget>[
-        DarkAppBar(title: 'Cities'),
+        DarkAppBar(title: AppLocale.getString(context, 'cities')),
         FutureBuilder(
           future: _api.getRegions(),
           builder: (context, snap) {
@@ -50,7 +53,7 @@ class CitiesPage extends StatelessWidget {
                   AssetImage(AssetsUtils.getInstance().getJPGImagePath(name)),
               radius: 30,
             ),
-            title: Text(list[index].name),
+            title: Text(AppLocale.getUnknownString(context, list[index].name)),
             subtitle: Text(cases),
           ),
         );
