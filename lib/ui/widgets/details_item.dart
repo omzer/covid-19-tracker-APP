@@ -1,8 +1,10 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/ui/widgets/details_section.dart';
 import 'package:flutter/material.dart';
 
 class DetailsItem extends StatelessWidget {
   String region, total, title, recovery, lost;
+  BuildContext context;
 
   DetailsItem({
     this.region,
@@ -14,6 +16,7 @@ class DetailsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    this.context = context;
     return Card(
       color: Colors.black.withOpacity(.2),
       margin: EdgeInsets.all(8),
@@ -58,7 +61,7 @@ class DetailsItem extends StatelessWidget {
 
   Widget _buildTotal() {
     return DetailsSection(
-      title: 'Total cases: $total',
+      title: '${AppLocale.getString(context, 'total_cases')}: $total',
       icon: 'people',
       startColor: Color(0xff676ef6),
       endColor: Color(0xff8ba4f8),
@@ -67,7 +70,7 @@ class DetailsItem extends StatelessWidget {
 
   Widget _buildRecovery() {
     return DetailsSection(
-      title: 'Total recovery: $recovery',
+      title: '${AppLocale.getString(context, 'total_recovery')}: $recovery',
       icon: 'plus',
       startColor: Color(0xff62a340),
       endColor: Color(0xff9bde78),
@@ -76,7 +79,7 @@ class DetailsItem extends StatelessWidget {
 
   Widget _buildLost() {
     return DetailsSection(
-      title: 'Total Lost: $lost',
+      title: '${AppLocale.getString(context, 'total_lost')}: $lost',
       icon: 'death',
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),

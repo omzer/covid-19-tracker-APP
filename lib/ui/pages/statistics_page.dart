@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/charts/active_cases.dart';
 import 'package:covidtracker/ui/widgets/charts/daily_cases.dart';
@@ -9,9 +10,11 @@ import 'package:flutter/material.dart';
 
 class StatisticsPage extends StatelessWidget {
   API _api = API.getInstance();
+  BuildContext context;
 
   @override
   Widget build(BuildContext context) {
+    this.context = context;
     API.getInstance().getChartData();
     return Scaffold(
       body: DarkBackground(child: _buildBody()),
@@ -21,7 +24,7 @@ class StatisticsPage extends StatelessWidget {
   Widget _buildBody() {
     return Column(
       children: <Widget>[
-        DarkAppBar(title: 'Statistics'),
+        DarkAppBar(title: AppLocale.getString(context, 'statistics')),
         FutureBuilder(
           future: _api.getChartData(),
           builder: (context, snap) {

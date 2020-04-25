@@ -33,7 +33,7 @@ class EmergencyRepo {
     ));
 
     _emergencyNumbers.add(EmergencyNumberModel(
-      region: 'Nothren Hebron',
+      region: 'Northern Hebron',
       fileName: 'Hebron',
       contactName: 'Dr. Maher Melhem',
       jawwal: '0593716122',
@@ -129,7 +129,7 @@ class EmergencyRepo {
     ));
 
     _emergencyNumbers.add(EmergencyNumberModel(
-      region: 'Nothern',
+      region: 'Northern',
       fileName: 'Jenin',
       contactName: 'Dr. Wesam Subihat',
       jawwal: '0593716139',

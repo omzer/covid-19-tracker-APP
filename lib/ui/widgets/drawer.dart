@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/ui/pages/about_page.dart';
 import 'package:covidtracker/ui/pages/cities_page.dart';
 import 'package:covidtracker/ui/pages/details_page.dart';
@@ -42,32 +43,32 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return ListView(
       children: <Widget>[
         DrawerItem(
-          title: 'Emergancy numbers',
+          title: AppLocale.getString(context, 'emergency_numbers'),
           fileName: 'phone',
           page: EmergencyNumbersPage(),
         ),
         DrawerItem(
-          title: 'Infection map',
+          title: AppLocale.getString(context, 'infection_map'),
           fileName: 'map',
           page: MapPage(),
         ),
         DrawerItem(
-          title: 'Statistics',
+          title: AppLocale.getString(context, 'statistics'),
           fileName: 'chart',
           page: StatisticsPage(),
         ),
         DrawerItem(
-          title: 'Details',
+          title: AppLocale.getString(context, 'details'),
           fileName: 'details',
           page: DetailsPage(),
         ),
         DrawerItem(
-          title: 'Cities',
+          title: AppLocale.getString(context, 'cities'),
           fileName: 'cities',
           page: CitiesPage(),
         ),
         DrawerItem(
-          title: 'About',
+          title: AppLocale.getString(context, 'about'),
           fileName: 'info',
           page: AboutPage(),
         ),
@@ -79,7 +80,7 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
     return AppBar(
       backgroundColor: _back.withOpacity(.8),
       centerTitle: true,
-      title: Text('Quick options'),
+      title: Text(AppLocale.getString(context, 'quick_options')),
       leading: IconButton(
         icon: Icon(Icons.clear),
         onPressed: () => _navigationUtils.popPage(context),

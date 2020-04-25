@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/case_model.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        DarkAppBar(title: 'COVID-19 Palestine'),
+        DarkAppBar(title: AppLocale.getString(context, 'app_title')),
         _buildSummaryText(),
         _buildSummarySection(),
         _buildLatestText(),
@@ -55,22 +56,16 @@ class _HomePageState extends State<HomePage> {
   Widget _buildLatestText() {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-      child: Text(
-        'Recent cases',
-        style: style,
-      ),
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+      child: Text(AppLocale.getString(context, 'recent_cases'), style: style),
     );
   }
 
   Widget _buildSummaryText() {
     TextStyle style = TextStyle(fontSize: 22, color: Colors.white);
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 0, 10),
-      child: Text(
-        'Summary',
-        style: style,
-      ),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+      child: Text(AppLocale.getString(context, 'summary'), style: style),
     );
   }
 
