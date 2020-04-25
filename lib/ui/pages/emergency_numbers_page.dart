@@ -9,10 +9,12 @@ import 'package:flutter/material.dart';
 class EmergencyNumbersPage extends StatelessWidget {
   EmergencyRepo _repo = EmergencyRepo.getInstance();
   BuildContext context;
+  bool isArabic = false;
 
   @override
   Widget build(BuildContext context) {
     this.context = context;
+    isArabic = AppLocale.getDeviceLocale(context) == 'ar';
     return Scaffold(
       body: DarkBackground(child: _buildBody()),
     );
@@ -31,7 +33,7 @@ class EmergencyNumbersPage extends StatelessWidget {
     List<EmergencyNumberModel> list = _repo.getList();
     return ListView.builder(
       itemCount: list.length,
-      itemBuilder: (context, index) => EmergencyContact(model: list[index]),
+      itemBuilder: (context, index) => EmergencyContact(model: list[index], isArabic: isArabic),
     );
   }
 }

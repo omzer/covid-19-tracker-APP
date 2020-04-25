@@ -8,16 +8,31 @@ import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyContact extends StatelessWidget {
   EmergencyNumberModel model;
+  bool isArabic;
   BuildContext mContext;
   AssetsUtils _assetsUtils = AssetsUtils.getInstance();
   NavigationUtils _navigationUtils = NavigationUtils.getInstance();
+  String _contactName,
+      _youAreCalling,
+      _keepInMind,
+      _jawwal,
+      _watanya,
+      _whatCarrier;
+
   final TextStyle _whiteText = TextStyle(color: Colors.white);
 
-  EmergencyContact({this.model});
+  EmergencyContact({this.model, this.isArabic});
 
   @override
   Widget build(BuildContext context) {
     mContext = context;
+    _contactName = isArabic ? model.contactNameAra : model.contactNameEng;
+    _youAreCalling = AppLocale.getString(context, 'you_are_calling');
+    _keepInMind = AppLocale.getString(context, 'keep_in_mind');
+    _jawwal = AppLocale.getString(context, 'jawwal');
+    _watanya = AppLocale.getString(context, 'watanya');
+    _whatCarrier = AppLocale.getString(context, 'what_carrier');
+
     return Card(
       elevation: 2,
       color: Color(0xff313d57).withOpacity(.75),
@@ -45,7 +60,7 @@ class EmergencyContact extends StatelessWidget {
     return Text(city, style: _whiteText);
   }
 
-  Widget _buildContactName() => Text(model.contactName, style: _whiteText);
+  Widget _buildContactName() => Text(_contactName, style: _whiteText);
 
   Widget _buildCallingButtons() {
     return IconButton(
@@ -59,14 +74,11 @@ class EmergencyContact extends StatelessWidget {
       context: mContext,
       builder: (_) {
         return AlertDialog(
-          title: Text('What carrier?'),
-          content: Text(
-            'You are about to call ${model.contactName}\'s phone.\nkeep in mind that this is paid call',
-          ),
+          title: Text(_whatCarrier),
+          content: Text('$_youAreCalling $_contactName $_keepInMind'),
           actions: <Widget>[
-            FlatButton(child: Text('Jawwal'), onPressed: _onCallJawwalPressed),
-            FlatButton(
-                child: Text('Watanya'), onPressed: _onCallWatanyaPressed),
+            FlatButton(child: Text(_jawwal), onPressed: _onCallJawwalPressed),
+            FlatButton(child: Text(_watanya), onPressed: _onCallWatanyaPressed),
           ],
         );
       },

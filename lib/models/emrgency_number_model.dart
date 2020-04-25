@@ -1,13 +1,15 @@
 class EmergencyNumberModel {
   String region;
-  String contactName;
+  String contactNameEng;
+  String contactNameAra;
   String jawwal;
   String watanya;
   String fileName;
 
   EmergencyNumberModel({
     this.region,
-    this.contactName,
+    this.contactNameEng,
+    this.contactNameAra,
     this.jawwal,
     this.watanya,
     this.fileName,

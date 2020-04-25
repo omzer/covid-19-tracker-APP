@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       future: initApp(),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting)
-          return WorldLoading();
+          return Scaffold(body: Center(child: CircularProgressIndicator()));
         return HomePage();
       },
     );
