@@ -40,5 +40,8 @@
   "contact_with_infected_persons": "مخالطة شخص مصاب",
   "worker_in_israel": "العمل في الداخل",
   "return_from_travel": "العودة من السفر",
-  "daily_cases": "الحالات اليومية"
+  "daily_cases": "الحالات اليومية",
+  "abroad": "المهجر",
+  "westbank_and_gaza": "الضفة وقطاع غزة",
+  "westbank": "الضفة الغربية"
 }

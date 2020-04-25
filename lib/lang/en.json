@@ -40,5 +40,8 @@
   "contact_with_infected_persons": "Contact with infected persons",
   "worker_in_israel": "Worker in Israel",
   "return_from_travel": "Return from travel",
-  "daily_cases": "Daily cases"
+  "daily_cases": "Daily cases",
+  "abroad": "Abroad",
+  "westbank_and_gaza": "Westbank and Gaza",
+  "westbank": "Westbank"
 }

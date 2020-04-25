@@ -1,3 +1,4 @@
+import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
@@ -8,10 +9,11 @@ import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
   API _api = API.getInstance();
+  BuildContext context;
 
   @override
   Widget build(BuildContext context) {
-    API.getInstance().getChartData();
+    this.context = context;
     return Scaffold(
       body: DarkBackground(child: _buildBody()),
     );
@@ -20,7 +22,7 @@ class DetailsPage extends StatelessWidget {
   Widget _buildBody() {
     return Column(
       children: <Widget>[
-        DarkAppBar(title: 'Details'),
+        DarkAppBar(title: AppLocale.getString(context, 'details')),
         FutureBuilder(
           future: _api.getSummary(),
           builder: (context, snap) {
@@ -34,26 +36,29 @@ class DetailsPage extends StatelessWidget {
   }
 
   Widget _buildDetailsList(SummaryModel model) {
+    final String westbank = AppLocale.getString(context, 'westbank');
+    final String gaza = AppLocale.getString(context, 'gaza_strip');
     return ListView(
       children: <Widget>[
         // Westbank
         DetailsItem(
-          region: 'Westbank and Gaza',
-          title: 'WestBank: ${model.totalWestbank} - Gaza: ${model.totalGaza}',
+          region: AppLocale.getString(context, 'westbank_and_gaza'),
+          title:
+              '$westbank: ${model.totalWestbank} - $gaza: ${model.totalGaza}',
           total: model.totalCases,
           lost: model.totalDeath,
           recovery: model.totalRecovery,
         ),
         // Jerusalem
         DetailsItem(
-          region: 'Jerusalem',
+          region: AppLocale.getString(context, 'jerusalem'),
           total: model.totalCasesInJerusalem,
           lost: model.totalLostInJerusalem,
           recovery: model.totalRecoveryInJerusalem,
         ),
         // Abroad
         DetailsItem(
-          region: 'Abroad',
+          region: AppLocale.getString(context, 'abroad'),
           total: model.totalCasesInAbroad,
           lost: model.totalLostInAbroad,
           recovery: model.totalRecoveryInAbroad,
