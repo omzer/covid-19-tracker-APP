@@ -57,5 +57,7 @@
   "data_source": "Data source",
   "all_data_come": "All data is being retrieved from the website (corona.ps), which is the official website monitored by the  ministry of health in Palestine.",
   "about_app": "About the App",
-  "app_info": "This App made to be a handy way to get all recent updates about corona cases in Palestine, just a click away from your fingers!\nAll represented data is coming from it's official sources.\nApp refreshes each time you enters the App."
+  "app_info": "This App made to be a handy way to get all recent updates about corona cases in Palestine, just a click away from your fingers!\nAll represented data is coming from it's official sources.\nApp refreshes each time you enters the App.",
+  "about_contributors": "Contributors",
+  "made_possible_by": "This App is made possible by the help of many people, so BIG special thanks for each single one of them!\nSamer Nazzal: Provided API's with explanation.\nHamza Sabri: Data entry and technical support.\nAbeer Sabri: Data Entry."
 }
