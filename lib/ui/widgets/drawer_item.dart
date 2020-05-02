@@ -22,7 +22,6 @@ class DrawerItem extends StatelessWidget {
       color: Colors.blueAccent.withOpacity(.2),
       child: InkWell(
         onTap: () {
-          _navigationUtils.popPage(context);
           _navigationUtils.navigateTo(context, page);
         },
         child: ListTile(
