@@ -1,6 +1,7 @@
 import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/summary_model.dart';
 import 'package:covidtracker/repo/api.dart';
+import 'package:covidtracker/utils/decoration_utils.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class SummaryChartState extends State {
   int _touchedIndex;
   double _active = 100, _recovered = 0, _lost = 0;
   API _api = API.getInstance();
+  DecorationUtils _decorationUtils = DecorationUtils.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,9 @@ class SummaryChartState extends State {
     return AspectRatio(
       aspectRatio: 1.5,
       child: Card(
+        shape: _decorationUtils.getCardRoundedBorder(12),
+        color: Colors.black.withOpacity(0.2),
         margin: EdgeInsets.all(8),
-        color: Colors.white,
         child: Row(
           children: <Widget>[
             const SizedBox(height: 18),
@@ -69,11 +72,11 @@ class SummaryChartState extends State {
         ),
         Text(
           AppLocale.getString(context, 'recovered'),
-          style: TextStyle(fontSize: 18, color: Color(0xff62a340)),
+          style: TextStyle(fontSize: 18, color: Color(0xff9bde78)),
         ),
         Text(
           AppLocale.getString(context, 'lost'),
-          style: TextStyle(fontSize: 18, color: Color(0xffd05a81)),
+          style: TextStyle(fontSize: 18, color: Colors.red),
         ),
         SizedBox(height: 40),
       ],
@@ -143,7 +146,7 @@ class SummaryChartState extends State {
         // Lost
         case 2:
           return PieChartSectionData(
-            color: const Color(0xffd05a81),
+            color: Colors.red,
             value: _lost,
             title: '$lostString%',
             radius: radius,

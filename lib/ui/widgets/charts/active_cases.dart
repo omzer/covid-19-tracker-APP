@@ -1,4 +1,5 @@
 import 'package:covidtracker/models/chart_data_model.dart';
+import 'package:covidtracker/utils/decoration_utils.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +9,15 @@ class ActiveCases extends StatelessWidget {
     const Color(0xff7ea1f8),
   ];
   List<ChartDataModel> dataList;
+  DecorationUtils _decorationUtils = DecorationUtils.getInstance();
 
   ActiveCases({@required this.dataList});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      shape: _decorationUtils.getCardRoundedBorder(12),
+      color: Colors.black.withOpacity(0.2),
       margin: EdgeInsets.all(8),
       child: AspectRatio(
         aspectRatio: 1.5,
@@ -58,9 +61,9 @@ class ActiveCases extends StatelessWidget {
         showTitles: true,
         reservedSize: 22,
         textStyle: const TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
         getTitles: (value) {
-          if (value == dataList.length.ceil() / 2) return 'Active cases';
+          if (value == (dataList.length / 2).ceil()) return 'Active cases';
           return '';
         },
         margin: 8,
@@ -68,13 +71,13 @@ class ActiveCases extends StatelessWidget {
       leftTitles: SideTitles(
         showTitles: true,
         textStyle: const TextStyle(
-          color: Colors.black,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 15,
         ),
         getTitles: (value) {
-          if (value == 0) return '0';
-          if (value == _maxY) return '${_maxY.toInt()}';
+          if (value <= _maxY && value % 50 == 0)
+            return value.toInt().toString();
           return '';
         },
         reservedSize: 28,
