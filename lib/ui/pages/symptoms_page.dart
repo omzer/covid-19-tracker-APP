@@ -1,13 +1,11 @@
 import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/home_appbar.dart';
-import 'package:covidtracker/utils/assets_utils.dart';
+import 'package:covidtracker/ui/widgets/symptom_item.dart';
 import 'package:flutter/material.dart';
 
 class SymptomsPage extends StatelessWidget {
   BuildContext context;
-
-  AssetsUtils _assetsUtils = AssetsUtils.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -36,44 +34,33 @@ class SymptomsPage extends StatelessWidget {
         mainAxisSpacing: 8,
       ),
       children: <Widget>[
-        _buildSymptomItem(),
-        _buildSymptomItem(),
-        _buildSymptomItem(),
-        _buildSymptomItem(),
-        _buildSymptomItem(),
-        _buildSymptomItem(),
-        _buildSymptomItem(),
+        SymptomsItem(
+          fileName: 'fever',
+          title: 'High fever',
+          subtitle: 'High fever grater than 39 C°, last for 3-4 days.',
+        ),
+        SymptomsItem(
+          fileName: 'breath',
+          title: 'Out of breath',
+          subtitle: 'Bearhing is getting more strained and struggle to breath.',
+        ),
+        SymptomsItem(
+          fileName: 'tired',
+          title: 'Tiredness',
+          subtitle: 'Feeling tired easily, and pain in the muscles.',
+        ),
+        SymptomsItem(
+          fileName: 'cough',
+          title: 'Dry cough',
+          subtitle:
+              'Cough is dry and persistent, you may feel even more short of breath as your body struggles to get enough oxygen.',
+        ),
+        SymptomsItem(
+          fileName: 'bathroom',
+          title: 'Diarrhoea',
+          subtitle: 'Going to the bathroom more than usual.',
+        ),
       ],
-    );
-  }
-
-  Widget _buildSymptomItem() {
-    return Stack(
-      children: <Widget>[
-        _buildCardBody(),
-        _buildImage(),
-      ],
-    );
-  }
-
-  Widget _buildCardBody() {
-    return Positioned(
-      top: 50,
-      right: 0,
-      left: 0,
-      bottom: 0,
-      child: Card(),
-    );
-  }
-
-  Widget _buildImage() {
-    return Positioned(
-      top: 8,
-      left: 8,
-      child: Image.asset(
-        _assetsUtils.getPNGImagePath('fever'),
-        width: 80,
-      ),
     );
   }
 }
