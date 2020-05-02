@@ -60,5 +60,15 @@
   "app_info": "This App made to be a handy way to get all recent updates about corona cases in Palestine, just a click away from your fingers!\nAll represented data is coming from it's official sources.\nApp refreshes each time you enters the App.",
   "about_contributors": "Contributors",
   "made_possible_by": "This App is made possible by the help of many people, so BIG special thanks for each single one of them!\nSamer Nazzal: Provided API's with explanation.\nHamza Sabri: Data entry and technical support.\nAbeer Sabri: Data Entry.",
-  "symptoms": "Symptoms"
+  "symptoms": "Symptoms",
+  "fever_title": "High fever",
+  "fever_subtitle": "High fever grater than 39 C°, last for 3-4 days.",
+  "breath_title": "Out of breath",
+  "breath_subtitle": "Breathing is getting more strained and struggle to breath.",
+  "tired_title": "Tiredness",
+  "tired_subtitle": "Feeling tired easily, and pain in the muscles.",
+  "cough_title": "Dry cough",
+  "cough_subtitle": "Cough is dry and persistent, you may feel even more short of breath as your body struggles to get enough oxygen.",
+  "diarrhoea_title": "Diarrhoea",
+  "diarrhoea_subtitle": "Going to the bathroom more than usual."
 }

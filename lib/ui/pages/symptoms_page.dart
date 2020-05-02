@@ -36,29 +36,28 @@ class SymptomsPage extends StatelessWidget {
       children: <Widget>[
         SymptomsItem(
           fileName: 'fever',
-          title: 'High fever',
-          subtitle: 'High fever grater than 39 C°, last for 3-4 days.',
+          title: AppLocale.getString(context, 'fever_title'),
+          subtitle: AppLocale.getString(context, 'fever_subtitle'),
         ),
         SymptomsItem(
           fileName: 'breath',
-          title: 'Out of breath',
-          subtitle: 'Bearhing is getting more strained and struggle to breath.',
+          title: AppLocale.getString(context, 'breath_title'),
+          subtitle: AppLocale.getString(context, 'breath_subtitle'),
         ),
         SymptomsItem(
           fileName: 'tired',
-          title: 'Tiredness',
-          subtitle: 'Feeling tired easily, and pain in the muscles.',
+          title: AppLocale.getString(context, 'tired_title'),
+          subtitle: AppLocale.getString(context, 'tired_subtitle'),
         ),
         SymptomsItem(
           fileName: 'cough',
-          title: 'Dry cough',
-          subtitle:
-              'Cough is dry and persistent, you may feel even more short of breath as your body struggles to get enough oxygen.',
+          title: AppLocale.getString(context, 'cough_title'),
+          subtitle: AppLocale.getString(context, 'cough_subtitle'),
         ),
         SymptomsItem(
           fileName: 'bathroom',
-          title: 'Diarrhoea',
-          subtitle: 'Going to the bathroom more than usual.',
+          title: AppLocale.getString(context, 'diarrhoea_title'),
+          subtitle: AppLocale.getString(context, 'diarrhoea_subtitle'),
         ),
       ],
     );
