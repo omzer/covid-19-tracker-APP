@@ -1,24 +1,26 @@
 import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/chart_data_model.dart';
+import 'package:covidtracker/utils/decoration_utils.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class DailyCases extends StatelessWidget {
   List<ChartDataModel> dataList;
+  DecorationUtils _decorationUtils = DecorationUtils.getInstance();
 
   DailyCases({@required this.dataList});
 
   BuildContext context;
   List<BarChartRodData> _list;
   double _maxY;
-  int _maxX;
 
   @override
   Widget build(BuildContext context) {
     this.context = context;
     getData();
     return Card(
-      color: Colors.white,
+      shape: _decorationUtils.getCardRoundedBorder(12),
+      color: Colors.black.withOpacity(0.2),
       margin: EdgeInsets.all(8),
       child: AspectRatio(
         aspectRatio: 1.5,
@@ -38,7 +40,7 @@ class DailyCases extends StatelessWidget {
               bottomTitles: SideTitles(
                 showTitles: true,
                 textStyle: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
@@ -50,8 +52,13 @@ class DailyCases extends StatelessWidget {
               leftTitles: SideTitles(showTitles: false),
             ),
             borderData: FlBorderData(
-              show: true,
-            ),
+                show: true,
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.white.withOpacity(.8),
+                    width: 2,
+                  ),
+                )),
             barGroups: [
               BarChartGroupData(
                 x: 0,
@@ -72,8 +79,9 @@ class DailyCases extends StatelessWidget {
       getTooltipItem: (_, __, rod, index) {
         int val = rod.y.round();
         return BarTooltipItem(
-            '$val in ${dataList[index].date.substring(5).replaceAll('-', '/')}',
-            TextStyle(color: Colors.white));
+          '$val in ${dataList[index].date.substring(5).replaceAll('-', '/')}',
+          TextStyle(color: Colors.white, fontSize: 16),
+        );
       },
     );
   }
@@ -81,9 +89,11 @@ class DailyCases extends StatelessWidget {
   void getData() {
     _list = [];
     _maxY = 0;
-    _maxX = 0;
-    for (int i = 0; i < dataList.length; i++) {
-      _maxX++;
+    int maxNumberOfItems = 80;
+    int start = dataList.length <= maxNumberOfItems
+        ? 0
+        : dataList.length - maxNumberOfItems;
+    for (int i = start; i < dataList.length; i++) {
       double val = dataList[i].active - (i == 0 ? 0 : dataList[i - 1].active);
       // Get abs value
       if (val < 0) val *= -1;
@@ -93,7 +103,7 @@ class DailyCases extends StatelessWidget {
       _list.add(
         BarChartRodData(
           y: val,
-          color: Colors.blueAccent,
+          color: Color(0xff6ecff5),
           width: 4,
         ),
       );
