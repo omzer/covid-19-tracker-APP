@@ -7,6 +7,7 @@ import 'package:covidtracker/ui/pages/details_page.dart';
 import 'package:covidtracker/ui/pages/emergency_numbers_page.dart';
 import 'package:covidtracker/ui/pages/map_page.dart';
 import 'package:covidtracker/ui/pages/statistics_page.dart';
+import 'package:covidtracker/ui/pages/symptoms_page.dart';
 import 'package:covidtracker/utils/navigation_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -66,6 +67,11 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
           title: AppLocale.getString(context, 'cities'),
           fileName: 'cities',
           page: CitiesPage(),
+        ),
+        DrawerItem(
+          title: AppLocale.getString(context, 'symptoms'),
+          fileName: 'symptoms',
+          page: SymptomsPage(),
         ),
         DrawerItem(
           title: AppLocale.getString(context, 'about'),
