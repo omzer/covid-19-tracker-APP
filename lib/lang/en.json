@@ -71,5 +71,15 @@
   "cough_subtitle": "Cough is dry and persistent, you may feel even more short of breath as your body struggles to get enough oxygen.",
   "diarrhoea_title": "Diarrhoea",
   "diarrhoea_subtitle": "Going to the bathroom more than usual.",
-  "prevention": "Prevention"
+  "prevention": "Prevention",
+  "stay_home": "Stay home as much as you can",
+  "wash_hands": "Wash your hands often",
+  "keep_distance": "Keep a safe distance",
+  "cover_cough": "Cover your cough",
+  "feel_sick": "Feeling sick? call to get medical treatment",
+  "avoid_travelling": "Avoid travelling",
+  "cook_home": "Cook home, don't order food",
+  "wear_mask": "Wear mask in public places",
+  "shake_hands": "Avoid shaking hands with others",
+  "avoid_social": "Avoid social events"
 }

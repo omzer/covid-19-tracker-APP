@@ -2,12 +2,12 @@ import 'package:covidtracker/utils/assets_utils.dart';
 import 'package:covidtracker/utils/decoration_utils.dart';
 import 'package:flutter/material.dart';
 
-class SymptomsItem extends StatelessWidget {
+class ImageAndText extends StatelessWidget {
   String fileName, title, subtitle;
   AssetsUtils _assetsUtils = AssetsUtils.getInstance();
   DecorationUtils _decorationUtils = DecorationUtils.getInstance();
 
-  SymptomsItem({
+  ImageAndText({
     this.fileName,
     this.title,
     this.subtitle,
@@ -63,22 +63,24 @@ class SymptomsItem extends StatelessWidget {
 
   Widget _buildText() {
     return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: <Widget>[
-          SizedBox(height: 30),
-          Text(title, style: _titleStyle),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Text(
-                subtitle,
-                style: _subtitleStyle,
-                overflow: TextOverflow.clip,
-                textAlign: TextAlign.center,
-              ),
+      padding: const EdgeInsets.fromLTRB(8, 30, 8, 4),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: <Widget>[
+            Text(
+              title,
+              style: _titleStyle,
+              textAlign: TextAlign.center,
             ),
-          ),
-        ],
+            Text(
+              subtitle ?? '',
+              style: _subtitleStyle,
+              overflow: TextOverflow.clip,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

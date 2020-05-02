@@ -34,27 +34,27 @@ class SymptomsPage extends StatelessWidget {
         mainAxisSpacing: 8,
       ),
       children: <Widget>[
-        SymptomsItem(
+        ImageAndText(
           fileName: 'fever',
           title: AppLocale.getString(context, 'fever_title'),
           subtitle: AppLocale.getString(context, 'fever_subtitle'),
         ),
-        SymptomsItem(
+        ImageAndText(
           fileName: 'breath',
           title: AppLocale.getString(context, 'breath_title'),
           subtitle: AppLocale.getString(context, 'breath_subtitle'),
         ),
-        SymptomsItem(
+        ImageAndText(
           fileName: 'tired',
           title: AppLocale.getString(context, 'tired_title'),
           subtitle: AppLocale.getString(context, 'tired_subtitle'),
         ),
-        SymptomsItem(
+        ImageAndText(
           fileName: 'cough',
           title: AppLocale.getString(context, 'cough_title'),
           subtitle: AppLocale.getString(context, 'cough_subtitle'),
         ),
-        SymptomsItem(
+        ImageAndText(
           fileName: 'bathroom',
           title: AppLocale.getString(context, 'diarrhoea_title'),
           subtitle: AppLocale.getString(context, 'diarrhoea_subtitle'),
