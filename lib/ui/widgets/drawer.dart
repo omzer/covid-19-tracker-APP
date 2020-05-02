@@ -55,7 +55,7 @@ class _MainPageDrawerState extends State<MainPageDrawer> {
         ),
         DrawerItem(
           title: AppLocale.getString(context, 'statistics'),
-          fileName: 'chart',
+          fileName: 'statistics',
           page: StatisticsPage(),
         ),
         DrawerItem(
