@@ -30,3 +30,10 @@
 ##### This App is built entirely on Flutter, which is a cross platform framework for developing Apps for both Android and iOS, you need to do couple of things before cloning this to your local machine, here's some links that will put you in the track:
 - [Flutter.dev website](https://flutter.dev/)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+## Contributors
+##### This App is made possible by the help of many people, so BIG special thanks for each single one of them!
+- Samer Nazzal: Provided API's with explanation.
+- Hamza Sabri: Data entry and technical support.
+- Abeer Sabri: Data Entry.
+- Hanan Sabri: idea and improvements.
