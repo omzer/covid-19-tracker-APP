@@ -1,8 +1,17 @@
 # COVID-19 Tracker for Palestine
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-<img src="https://raw.githubusercontent.com/omzer/covid-19-tracker-APP/master/lib/imgs/demo.gif" width="250">
+| Main Screen   | Quick options (drawer)    | Emergancy numbers |
+| ---   | ---   | ---   |
+|![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/1.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/2.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/3.png?raw=true)  |
+
+| Infection map (Gaza + Westbank)  | Statistics and charts    | Each region in details |
+| ---   | ---   | ---   |
+|![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/4.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/5.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/6.png?raw=true)  |
+
+| Number of cases in each city   | Symptoms    | Prevention |
+| ---   | ---   | ---   |
+|![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/7.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/8.png?raw=true)  | ![](https://github.com/omzer/covid-19-tracker-APP/blob/master/lib/screenshots/9.png?raw=true)  |
 
 ## What is this App
 ##### This is an App where you can follow all the updates regarding Coronavirus cases in Palestine, data is being retrieved from a website that is being monitored from the ministry of health in Palestine (Trusted).
@@ -21,3 +30,10 @@
 ##### This App is built entirely on Flutter, which is a cross platform framework for developing Apps for both Android and iOS, you need to do couple of things before cloning this to your local machine, here's some links that will put you in the track:
 - [Flutter.dev website](https://flutter.dev/)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+## Contributors
+##### This App is made possible by the help of many people, so BIG special thanks for each single one of them!
+- Samer Nazzal: Provided API's with explanation.
+- Hamza Sabri: Data entry and technical support.
+- Abeer Sabri: Data Entry.
+- Hanan Sabri: idea and improvements.
