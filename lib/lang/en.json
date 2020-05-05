@@ -62,7 +62,7 @@
   "made_possible_by": "This App is made possible by the help of many people, so BIG special thanks for each single one of them!\nSamer Nazzal: Provided API's with explanation.\nHamza Sabri: Data entry and technical support.\nAbeer Sabri: Data Entry.",
   "symptoms": "Symptoms",
   "fever_title": "High fever",
-  "fever_subtitle": "High fever grater than 39 C°, last for 3-4 days.",
+  "fever_subtitle": "High fever that could reach about 39 C°, last for 3-4 days.",
   "breath_title": "Out of breath",
   "breath_subtitle": "Breathing is getting more strained and struggle to breath.",
   "tired_title": "Tiredness",
@@ -81,5 +81,6 @@
   "cook_home": "Cook home, don't order food",
   "wear_mask": "Wear mask in public places",
   "shake_hands": "Avoid shaking hands with others",
-  "avoid_social": "Avoid social events"
+  "avoid_social": "Avoid social events",
+  "connection_error_message": "Something went wrong, please check your internet connection and try again."
 }

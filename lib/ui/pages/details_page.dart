@@ -4,6 +4,7 @@ import 'package:covidtracker/repo/api.dart';
 import 'package:covidtracker/ui/widgets/dark_background.dart';
 import 'package:covidtracker/ui/widgets/details_item.dart';
 import 'package:covidtracker/ui/widgets/home_appbar.dart';
+import 'package:covidtracker/ui/widgets/no_connection.dart';
 import 'package:covidtracker/ui/widgets/world_loading.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class DetailsPage extends StatelessWidget {
           builder: (context, snap) {
             if (snap.connectionState == ConnectionState.waiting)
               return WorldLoading();
+            if (snap.data == null) return NoConnection();
             return Expanded(child: _buildDetailsList(snap.data));
           },
         )
