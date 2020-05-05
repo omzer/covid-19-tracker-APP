@@ -28,4 +28,8 @@ class DecorationUtils {
       color: color,
     );
   }
+
+  BoxDecoration getContainerBorder(Color color) {
+    return BoxDecoration(border: Border.all(color: Colors.white));
+  }
 }

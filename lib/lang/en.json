@@ -81,5 +81,6 @@
   "cook_home": "Cook home, don't order food",
   "wear_mask": "Wear mask in public places",
   "shake_hands": "Avoid shaking hands with others",
-  "avoid_social": "Avoid social events"
+  "avoid_social": "Avoid social events",
+  "connection_error_message": "Something went wrong, please check your internet connection and try again."
 }
