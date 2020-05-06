@@ -22,7 +22,7 @@
 
 ## When it will be released
 ##### Releasing Apps that are related to corona to the Play store is prohibited, only government officials can release these Apps through their official accounts, do you know someone how can help? please send a DM to me :)
-##### Till then you can try the App by downloading [latest APK biuld](https://github.com/omzer/covid-19-tracker-APP/blob/feature/correctInfo/lib/download/app-release.apk?raw=true).
+##### Till then you can try the App by downloading [latest APK build](https://github.com/omzer/covid-19-tracker-APP/blob/feature/correctInfo/lib/download/app-release.apk?raw=true).
 
 ## Can I contribute to the project
 ##### This project is open-sourced, if you have some experience working on flutter and have some idea that you'd like to implement please don't hesitate. Pull requests, suggestions and issues are more than welcome!
