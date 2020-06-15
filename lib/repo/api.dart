@@ -12,7 +12,7 @@ class API {
   final String _summary = 'summary';
   final String _cases = 'cases';
   final String _chart = 'livechart';
-  final int _casesLoadCapacity = 30;
+  final int _casesLoadCapacity = 50;
   String _mapLink;
   static API _api;
 
