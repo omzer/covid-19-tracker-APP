@@ -1,5 +1,6 @@
 import 'package:covidtracker/lang/locale.dart';
 import 'package:covidtracker/models/summary_model.dart';
+import 'package:covidtracker/ui/widgets/animated_entrance_widget.dart';
 import 'package:covidtracker/ui/widgets/summary_item.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,26 @@ class SummarySection extends StatelessWidget {
         spacing: 15,
         runSpacing: 15,
         children: <Widget>[
-          _buildTotalCases(),
-          _buildRecoveredCases(),
-          _buildLostPeople(),
-          _buildTestedSamples(),
+          AnimatedEntranceWidget(
+            child: _buildTotalCases(),
+            offsetStart: -0.5,
+            offsetEnd: -0.5,
+          ),
+          AnimatedEntranceWidget(
+            child: _buildRecoveredCases(),
+            offsetStart: 0.5,
+            offsetEnd: -0.5,
+          ),
+          AnimatedEntranceWidget(
+            child: _buildTestedSamples(),
+            offsetStart: -0.5,
+            offsetEnd: 0.5,
+          ),
+          AnimatedEntranceWidget(
+            child: _buildLostPeople(),
+            offsetStart: 0.5,
+            offsetEnd: 0.5,
+          ),
         ],
       ),
     );
@@ -36,7 +53,7 @@ class SummarySection extends StatelessWidget {
     );
   }
 
-  Widget _buildTestedSamples() {
+  Widget _buildLostPeople() {
     return SummaryItem(
       startColor: Color(0xff36405e),
       endColor: Color(0xff5a668a),
@@ -64,7 +81,7 @@ class SummarySection extends StatelessWidget {
     return (100 * recovered / (total - death)).floor();
   }
 
-  Widget _buildLostPeople() {
+  Widget _buildTestedSamples() {
     return SummaryItem(
       startColor: Color(0xffd05a81),
       endColor: Color(0xfff19aae),
