@@ -75,9 +75,12 @@ class SummarySection extends StatelessWidget {
   }
 
   int _recoveredPercent() {
-    double total = double.parse(summaryModel.totalCasesWithJerusalem);
-    double recovered = double.parse(summaryModel.totalRecoveryWithJerusalem);
-    double death = double.parse(summaryModel.totalLostWithJerusalem);
+    double total =
+        double.parse(summaryModel.totalCasesWithJerusalem.replaceAll(',', ''));
+    double recovered = double.parse(
+        summaryModel.totalRecoveryWithJerusalem.replaceAll(',', ''));
+    double death =
+        double.parse(summaryModel.totalLostWithJerusalem.replaceAll(',', ''));
     return (100 * recovered / (total - death)).floor();
   }
 
