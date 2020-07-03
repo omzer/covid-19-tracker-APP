@@ -27,7 +27,7 @@ class DailyCases extends StatelessWidget {
         child: BarChart(
           BarChartData(
             alignment: BarChartAlignment.center,
-            maxY: _maxY,
+            maxY: _maxY + _maxY * .2,
             minY: 0,
             barTouchData: BarTouchData(
               enabled: true,
@@ -89,7 +89,7 @@ class DailyCases extends StatelessWidget {
   void getData() {
     _list = [];
     _maxY = 0;
-    int maxNumberOfItems = 80;
+    int maxNumberOfItems = 60;
     int start = dataList.length <= maxNumberOfItems
         ? 0
         : dataList.length - maxNumberOfItems;
@@ -104,7 +104,7 @@ class DailyCases extends StatelessWidget {
         BarChartRodData(
           y: val,
           color: Color(0xff6ecff5),
-          width: 4,
+          width: 3,
         ),
       );
     }
