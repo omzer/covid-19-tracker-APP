@@ -76,7 +76,7 @@ class ActiveCases extends StatelessWidget {
           fontSize: 15,
         ),
         getTitles: (value) {
-          if (value <= _maxY && value % 50 == 0)
+          if (value <= _maxY && value % 500 == 0)
             return value.toInt().toString();
           return '';
         },
@@ -117,7 +117,7 @@ class ActiveCases extends StatelessWidget {
       minX: 0,
       minY: 0,
       maxX: _maxX,
-      maxY: _maxY + _maxY * 0.1,
+      maxY: _maxY + _maxY * 0.2,
       lineBarsData: [
         LineChartBarData(
           spots: _spots,
