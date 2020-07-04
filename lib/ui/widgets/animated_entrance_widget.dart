@@ -26,8 +26,7 @@ class AnimatedEntranceWidget extends StatelessWidget {
           transform: Matrix4.identity()
             ..scale(animation.value)
             ..rotateZ(offsetStart - offsetStart * animation.value)
-            ..rotateY(offsetEnd - offsetEnd * animation.value)
-            ..translate(-2.0),
+            ..rotateY(offsetEnd - offsetEnd * animation.value),
           alignment: Alignment.center,
           child: child,
         ),
