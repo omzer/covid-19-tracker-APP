@@ -1,52 +1,37 @@
+import 'package:ezanimation/ezanimation.dart';
 import 'package:flutter/material.dart';
 
-class AnimatedEntranceWidget extends StatefulWidget {
+class AnimatedEntranceWidget extends StatelessWidget {
   Widget child;
   double offsetStart, offsetEnd;
 
   AnimatedEntranceWidget({this.child, this.offsetStart, this.offsetEnd});
 
   @override
-  _AnimatedEntranceWidgetState createState() => _AnimatedEntranceWidgetState();
-}
-
-class _AnimatedEntranceWidgetState extends State<AnimatedEntranceWidget>
-    with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation animation;
-
-  @override
-  void initState() {
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 250));
-    animation = Tween(begin: 0.0, end: 1.0).animate(controller);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    controller.forward();
-    return FadeTransition(
-      opacity: Tween<double>(
-        begin: 0,
-        end: 1,
-      ).animate(animation),
-      child: SlideTransition(
-          position: Tween<Offset>(
-            begin: Offset(widget.offsetStart, widget.offsetEnd),
-            end: Offset.zero,
-          ).animate(animation),
-          child: widget.child),
+    EzAnimation animation = EzAnimation(
+      0.0,
+      1.0,
+      Duration(milliseconds: 300),
+      context: context,
+      curve: Curves.ease,
     );
-  }
 
-  Widget _buildContainer() {
-    return Container(width: 100, height: 100, color: Colors.red);
+    animation.start();
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (_, __) => Opacity(
+        opacity: animation.value,
+        child: Transform(
+          transform: Matrix4.identity()
+            ..scale(animation.value)
+            ..rotateZ(offsetStart - offsetStart * animation.value)
+            ..rotateY(offsetEnd - offsetEnd * animation.value)
+            ..translate(-2.0),
+          alignment: Alignment.center,
+          child: child,
+        ),
+      ),
+    );
   }
 }
