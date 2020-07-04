@@ -1,3 +1,4 @@
+import 'package:ezanimation/ezanimation.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedEntranceWidget extends StatefulWidget {
@@ -10,43 +11,28 @@ class AnimatedEntranceWidget extends StatefulWidget {
   _AnimatedEntranceWidgetState createState() => _AnimatedEntranceWidgetState();
 }
 
-class _AnimatedEntranceWidgetState extends State<AnimatedEntranceWidget>
-    with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  Animation animation;
-
-  @override
-  void initState() {
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 250));
-    animation = Tween(begin: 0.0, end: 1.0).animate(controller);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
+class _AnimatedEntranceWidgetState extends State<AnimatedEntranceWidget> {
   @override
   Widget build(BuildContext context) {
-    controller.forward();
-    return FadeTransition(
-      opacity: Tween<double>(
-        begin: 0,
-        end: 1,
-      ).animate(animation),
-      child: SlideTransition(
-          position: Tween<Offset>(
-            begin: Offset(widget.offsetStart, widget.offsetEnd),
-            end: Offset.zero,
-          ).animate(animation),
-          child: widget.child),
+    EzAnimation animation = EzAnimation(
+      0.0,
+      1.0,
+      Duration(milliseconds: 250),
+      context: context,
+      curve: Curves.ease,
     );
-  }
 
-  Widget _buildContainer() {
-    return Container(width: 100, height: 100, color: Colors.red);
+    animation.start();
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (_, __) => Opacity(
+        opacity: animation.value,
+        child: Transform.rotate(
+          angle: widget.offsetStart * 1 - animation.value * widget.offsetStart,
+          origin: Offset(1, animation.value),
+          child: widget.child,
+        ),
+      ),
+    );
   }
 }
