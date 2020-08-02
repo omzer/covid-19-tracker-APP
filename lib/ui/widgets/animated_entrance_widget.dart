@@ -7,17 +7,21 @@ class AnimatedEntranceWidget extends StatelessWidget {
 
   AnimatedEntranceWidget({this.child, this.offsetStart, this.offsetEnd});
 
+  EzAnimation animation;
+
   @override
   Widget build(BuildContext context) {
-    EzAnimation animation = EzAnimation(
-      0.0,
-      1.0,
-      Duration(milliseconds: 300),
-      context: context,
-      curve: Curves.ease,
-    );
+    if (animation == null) {
+      animation = EzAnimation(
+        0.0,
+        1.0,
+        Duration(milliseconds: 300),
+        context: context,
+        curve: Curves.ease,
+      );
 
-    animation.start();
+      animation.start();
+    }
     return AnimatedBuilder(
       animation: animation,
       builder: (_, __) => Opacity(
@@ -26,8 +30,7 @@ class AnimatedEntranceWidget extends StatelessWidget {
           transform: Matrix4.identity()
             ..scale(animation.value)
             ..rotateZ(offsetStart - offsetStart * animation.value)
-            ..rotateY(offsetEnd - offsetEnd * animation.value)
-            ..translate(-2.0),
+            ..rotateY(offsetEnd - offsetEnd * animation.value),
           alignment: Alignment.center,
           child: child,
         ),
