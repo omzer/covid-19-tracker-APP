@@ -24,8 +24,7 @@ class CaseItem extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
       child: ListTile(
         leading: Image.asset(
-          _assetsUtils
-              .getPNGImagePath(caseModel.gender == 'Male' ? 'male' : 'female'),
+          _assetsUtils.getPNGImagePath(_getFileName(caseModel.gender)),
           color: Colors.white,
           width: 40,
         ),
@@ -45,5 +44,17 @@ class CaseItem extends StatelessWidget {
         trailing: NumberBadge(number: caseModel.caseNumber),
       ),
     );
+  }
+
+  String _getFileName(String gender) {
+    gender = gender.toLowerCase();
+    switch (gender) {
+      case 'male':
+        return 'male';
+      case 'female':
+        return 'female';
+      default:
+        return 'unknown';
+    }
   }
 }
