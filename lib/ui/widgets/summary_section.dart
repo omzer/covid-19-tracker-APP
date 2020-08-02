@@ -69,7 +69,7 @@ class SummarySection extends StatelessWidget {
       endColor: Color(0xff9bde78),
       title: summaryModel.totalRecoveryWithJerusalem,
       subtitle:
-          '${AppLocale.getString(context, 'recovered')} (${_recoveredPercent()}%)',
+          '${AppLocale.getString(context, 'recovered')} ${_recoveredPercent()}%',
       icon: 'plus',
     );
   }

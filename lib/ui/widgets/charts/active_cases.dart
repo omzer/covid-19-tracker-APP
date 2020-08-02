@@ -1,5 +1,6 @@
 import 'package:covidtracker/models/chart_data_model.dart';
 import 'package:covidtracker/utils/decoration_utils.dart';
+import 'package:covidtracker/utils/utils.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ class ActiveCases extends StatelessWidget {
   ];
   List<ChartDataModel> dataList;
   DecorationUtils _decorationUtils = DecorationUtils.getInstance();
+  Utils _utils = Utils.getInstance();
 
   ActiveCases({@required this.dataList});
 
@@ -73,11 +75,11 @@ class ActiveCases extends StatelessWidget {
         textStyle: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 15,
+          fontSize: 10,
         ),
         getTitles: (value) {
-          if (value <= _maxY && value % 500 == 0)
-            return value.toInt().toString();
+          if (value == _maxY || value % (_maxY / 5) == 0)
+            return _utils.getFormattedNumber(value.toInt().toString());
           return '';
         },
         reservedSize: 28,
